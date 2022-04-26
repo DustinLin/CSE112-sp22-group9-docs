@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: YearlyOverview/YearlyJS.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: YearlyOverview/YearlyJS.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/* eslint-disable no-undef */
+//putting this above b/c the API function are all "unknown" to eslint so it complains
+
+//get the desired year
+let myLocation = window.location.href;
+let currentYear = myLocation.substring(
+    myLocation.length - 4,
+    myLocation.length
+);
+//default case
+if (currentYear == 'html') {
+    currentYear = 2021;
+}
+console.log(currentYear);
+// currentYear = '2020';
+// contains the current year's yearlyGoal object from the database
+let currentYearRes;
+
+window.addEventListener('load', () => {
+    //gets the session, if the user isn't logged in, sends them to login page
+    let session = window.sessionStorage;
+    console.log('here is storage session', session);
+    if (session.getItem('loggedIn') !== 'true') {
+        window.location.href = '../Login/Login.html';
+    }
+    let dbPromise = initDB();
+    dbPromise.onsuccess = function (e) {
+        console.log('database connected');
+        setDB(e.target.result);
+        let req = getYearlyGoals(currentYear);
+        req.onsuccess = function (e) {
+            console.log('got year');
+            console.log(e.target.result);
+            currentYearRes = e.target.result;
+            if (currentYearRes === undefined) {
+                currentYearRes = initYear(currentYear);
+                createYearlyGoals(currentYearRes);
+            } else {
+                //Load in bullets
+                let goals = currentYearRes.goals;
+                renderGoals(goals);
+            }
+        };
+        let settingsReq = getSettings();
+        settingsReq.onsuccess = function (e) {
+            let settingObj = e.target.result;
+            console.log('setting initial theme');
+            document.documentElement.style.setProperty(
+                '--bg-color',
+                settingObj.theme
+            );
+        };
+    };
+});
+
+document.querySelector('.entry-form').addEventListener('submit', (submit) => {
+    submit.preventDefault();
+    let gText = document.querySelector('.entry-form-text').value;
+
+    document.querySelector('.entry-form-text').value = '';
+    currentYearRes.goals.push({
+        text: gText,
+        done: false,
+    });
+    console.log(currentYearRes);
+    document.querySelector('#bullets').innerHTML = '';
+    renderGoals(currentYearRes.goals);
+    updateYearsGoals(currentYearRes);
+});
+
+// lets bullet component listen to when a bullet is deleted
+document.querySelector('#bullets').addEventListener('deleted', function (e) {
+    console.log('got event');
+    console.log(e.composedPath());
+    let index = e.composedPath()[0].getAttribute('index');
+    currentYearRes.goals.splice(index, 1);
+    updateYearsGoals(currentYearRes);
+    document.querySelector('#bullets').innerHTML = '';
+    renderGoals(currentYearRes.goals);
+});
+
+// lets bullet component listen to when a bullet is edited
+document.querySelector('#bullets').addEventListener('edited', function (e) {
+    console.log('got event');
+    console.log(e.composedPath()[0]);
+    let newText = JSON.parse(e.composedPath()[0].getAttribute('goalJson')).text;
+    let index = e.composedPath()[0].getAttribute('index');
+    currentYearRes.goals[index].text = newText;
+    updateYearsGoals(currentYearRes);
+    document.querySelector('#bullets').innerHTML = '';
+    renderGoals(currentYearRes.goals);
+});
+
+// lets bullet component listen to when a bullet is marked done
+document.querySelector('#bullets').addEventListener('done', function (e) {
+    console.log('got done event');
+    console.log(e.composedPath()[0]);
+    let index = e.composedPath()[0].getAttribute('index');
+    currentYearRes.goals[index].done ^= true;
+    updateYearsGoals(currentYearRes);
+    document.querySelector('#bullets').innerHTML = '';
+    renderGoals(currentYearRes.goals);
+});
+/**
+ * Function that renders a list of goals into the todo area
+ * @param {Object} a list of goal objects
+ */
+function renderGoals(goals) {
+    let i = 0;
+    goals.forEach((goal) => {
+        let newPost = document.createElement('goals-entry');
+        newPost.setAttribute('goalJson', JSON.stringify(goal));
+        newPost.setAttribute('index', i);
+        newPost.entry = goal;
+        console.log(newPost);
+        document.querySelector('#bullets').appendChild(newPost);
+        i++;
+    });
+}
+
+/**kk */
+//link the months
+document.getElementById('January').children[0].href =
+    'https://cse110-sp21-group12.github.io/cse110-sp21-group12/source/MonthlyOverview/MonthlyOverview.html' +
+    '#01/' +
+    currentYear;
+document.getElementById('February').children[0].href =
+    'https://cse110-sp21-group12.github.io/cse110-sp21-group12/source/MonthlyOverview/MonthlyOverview.html' +
+    '#02/' +
+    currentYear;
+document.getElementById('March').children[0].href =
+    'https://cse110-sp21-group12.github.io/cse110-sp21-group12/source/MonthlyOverview/MonthlyOverview.html' +
+    '#03/' +
+    currentYear;
+document.getElementById('April').children[0].href =
+    'https://cse110-sp21-group12.github.io/cse110-sp21-group12/source/MonthlyOverview/MonthlyOverview.html' +
+    '#04/' +
+    currentYear;
+document.getElementById('May').children[0].href =
+    'https://cse110-sp21-group12.github.io/cse110-sp21-group12/source/MonthlyOverview/MonthlyOverview.html' +
+    '#05/' +
+    currentYear;
+document.getElementById('June').children[0].href =
+    'https://cse110-sp21-group12.github.io/cse110-sp21-group12/source/MonthlyOverview/MonthlyOverview.html' +
+    '#06/' +
+    currentYear;
+document.getElementById('July').children[0].href =
+    'https://cse110-sp21-group12.github.io/cse110-sp21-group12/source/MonthlyOverview/MonthlyOverview.html' +
+    '#07/' +
+    currentYear;
+document.getElementById('August').children[0].href =
+    'https://cse110-sp21-group12.github.io/cse110-sp21-group12/source/MonthlyOverview/MonthlyOverview.html' +
+    '#08/' +
+    currentYear;
+document.getElementById('September').children[0].href =
+    'https://cse110-sp21-group12.github.io/cse110-sp21-group12/source/MonthlyOverview/MonthlyOverview.html' +
+    '#09/' +
+    currentYear;
+document.getElementById('October').children[0].href =
+    'https://cse110-sp21-group12.github.io/cse110-sp21-group12/source/MonthlyOverview/MonthlyOverview.html' +
+    '#10/' +
+    currentYear;
+document.getElementById('November').children[0].href =
+    'https://cse110-sp21-group12.github.io/cse110-sp21-group12/source/MonthlyOverview/MonthlyOverview.html' +
+    '#11/' +
+    currentYear;
+document.getElementById('December').children[0].href =
+    'https://cse110-sp21-group12.github.io/cse110-sp21-group12/source/MonthlyOverview/MonthlyOverview.html' +
+    '#12/' +
+    currentYear;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#checkingDeploy">checkingDeploy</a></li><li><a href="global.html#collapsible_year_toggle">collapsible_year_toggle</a></li><li><a href="global.html#createDay">createDay</a></li><li><a href="global.html#createMonthlyGoals">createMonthlyGoals</a></li><li><a href="global.html#createSettings">createSettings</a></li><li><a href="global.html#createYearlyGoals">createYearlyGoals</a></li><li><a href="global.html#dayNumber">dayNumber</a></li><li><a href="global.html#db">db</a></li><li><a href="global.html#DB_NAME">DB_NAME</a></li><li><a href="global.html#DB_VERSION">DB_VERSION</a></li><li><a href="global.html#deleteDay">deleteDay</a></li><li><a href="global.html#deleteMockData">deleteMockData</a></li><li><a href="global.html#deleteMonthlyGoals">deleteMonthlyGoals</a></li><li><a href="global.html#deleteSettings">deleteSettings</a></li><li><a href="global.html#deleteYearlyGoals">deleteYearlyGoals</a></li><li><a href="global.html#editMockData">editMockData</a></li><li><a href="global.html#fetchMonthGoals">fetchMonthGoals</a></li><li><a href="global.html#fetchYearGoals">fetchYearGoals</a></li><li><a href="global.html#firstDow">firstDow</a></li><li><a href="global.html#getDay">getDay</a></li><li><a href="global.html#getDimensions">getDimensions</a></li><li><a href="global.html#getLoginState">getLoginState</a></li><li><a href="global.html#getMockData">getMockData</a></li><li><a href="global.html#getMonthlyGoals">getMonthlyGoals</a></li><li><a href="global.html#getSettings">getSettings</a></li><li><a href="global.html#getYearlyGoals">getYearlyGoals</a></li><li><a href="global.html#goHome">goHome</a></li><li><a href="global.html#handleLogin">handleLogin</a></li><li><a href="global.html#handleSignup">handleSignup</a></li><li><a href="global.html#initDay">initDay</a></li><li><a href="global.html#initDB">initDB</a></li><li><a href="global.html#initGoal">initGoal</a></li><li><a href="global.html#initMonth">initMonth</a></li><li><a href="global.html#initYear">initYear</a></li><li><a href="global.html#lastDow">lastDow</a></li><li><a href="global.html#monthNumber">monthNumber</a></li><li><a href="global.html#renderBullets">renderBullets</a></li><li><a href="global.html#renderChild">renderChild</a></li><li><a href="global.html#renderGoals">renderGoals</a></li><li><a href="global.html#renderPhotos">renderPhotos</a></li><li><a href="global.html#requestDay">requestDay</a></li><li><a href="global.html#setDB">setDB</a></li><li><a href="global.html#setNewUser">setNewUser</a></li><li><a href="global.html#setReturningUser">setReturningUser</a></li><li><a href="global.html#setSelected">setSelected</a></li><li><a href="global.html#setupCalendar">setupCalendar</a></li><li><a href="global.html#setUpMockData">setUpMockData</a></li><li><a href="global.html#storageSession">storageSession</a></li><li><a href="global.html#updateDay">updateDay</a></li><li><a href="global.html#updateMonthlyGoals">updateMonthlyGoals</a></li><li><a href="global.html#updateNote">updateNote</a></li><li><a href="global.html#updateSettings">updateSettings</a></li><li><a href="global.html#updateYearsGoals">updateYearsGoals</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Tue Apr 26 2022 20:48:00 GMT+0000 (Coordinated Universal Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

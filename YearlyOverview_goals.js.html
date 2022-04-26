@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: YearlyOverview/goals.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: YearlyOverview/goals.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// &lt;goals-entry> custom web component
+class GoalsEntry extends HTMLElement {
+    constructor() {
+        super();
+        const template = document.createElement('template');
+
+        template.innerHTML = `
+            &lt;style>
+                .bullet{
+                    word-break: break-all;
+                    max-width: 100%;
+                    font-size: 2.3vh;
+                }
+                .bullet-container{
+                    display: inline-block; !important
+                }
+                li > span {
+                    position: relative;
+                    left: -5px;
+                }
+                ul {
+                    padding: 0px 0px 0px 15px;
+                    margin: 0;
+                }
+                li {
+                    padding: 5px;
+                }
+                .dropdownContainer {
+                    position: relative;
+                    display: inline-block;
+                }
+                .clicked {
+                    background-color: #858585;
+                }
+                .dropdown {
+                    display: none;
+                    position: absolute;
+                    background-color: #e4e4e4;
+                    min-width: 10vh;
+                    z-index: 1;
+                    transform: translateY(-0.1vh);
+                }
+                .dropdown p {
+                    color: black;
+                    font-size: 1.7vh;
+                    padding: 0.5vh 0 0.5vh 0.5vh;
+                    display: block;
+                    margin: 0;
+                    background-color: #e4e4e4;
+                }
+                .dropdown p:hover {
+                    background-color: #cecece;
+                    cursor: pointer
+                }
+                .dropdownContainer:hover .dropdown {
+                    display: block;
+                }
+                .dropdownButton {
+                    font-size: 1.5vh;
+                    width: 2vh;
+                    height: 2vh;
+                    transform: translateY(-0.1vh);
+                    padding: 0;
+                    background-color: #e4e4e4;
+                    border: none;
+                    border-radius: 0.5vh;
+                }
+            &lt;/style>
+            &lt;article class="bullet">
+            &lt;div id="container">
+                &lt;ul>
+                    &lt;li>
+                        &lt;span class="bullet-content">Setting text&lt;/span>
+                    &lt;div class="dropdownContainer">
+                        &lt;button class="dropdownButton">v&lt;/button>
+                        &lt;div class="dropdown">
+                            &lt;p id="edit">Edit&lt;/p>
+                            &lt;p id="delete">Delete&lt;/p>
+                            &lt;p id="done">Mark Done&lt;/p>
+                        &lt;/div>
+                    &lt;/div>
+                    &lt;/li>
+                &lt;/ul>
+            &lt;/div>
+            &lt;/article>
+            `;
+
+        this.attachShadow({ mode: 'open' });
+        this.shadowRoot.appendChild(template.content.cloneNode(true));
+
+        // edit goal through a prompt
+        this.shadowRoot.querySelector('#edit').addEventListener('click', () => {
+            let newJson = JSON.parse(this.getAttribute('goalJson'));
+            let editedEntry = prompt(
+                'Edit Bullet',
+                this.shadowRoot.querySelector('.bullet-content').innerText
+            );
+            if (editedEntry != null &amp;&amp; editedEntry != '') {
+                this.shadowRoot.querySelector(
+                    '.bullet-content'
+                ).innerText = editedEntry;
+                newJson.text = editedEntry;
+                this.setAttribute('goalJson', JSON.stringify(newJson));
+            }
+            this.dispatchEvent(this.edited);
+        });
+
+        // mark bullet as done
+        this.shadowRoot.querySelector('#done').addEventListener('click', () => {
+            this.dispatchEvent(this.done);
+        });
+
+        // delete goal
+        this.shadowRoot
+            .querySelector('#delete')
+            .addEventListener('click', () => {
+                this.dispatchEvent(this.deleted);
+            });
+
+        // new event to see when goal is deleted
+        this.deleted = new CustomEvent('deleted', {
+            bubbles: true,
+            composed: true,
+        });
+
+        // new event to see when goal is edited
+        this.edited = new CustomEvent('edited', {
+            bubbles: true,
+            composed: true,
+        });
+
+        // new event to mark event as done
+        this.done = new CustomEvent('done', {
+            bubbles: true,
+            composed: true,
+        });
+    }
+
+    /**
+     * when getting the entry, return just the text for now
+     */
+    get entry() {
+        let entryObj = {
+            content: this.shadowRoot.querySelector('.bullet-content').innerText,
+        };
+        return entryObj;
+    }
+
+    set entry(entry) {
+        // set the text of the entry
+        this.shadowRoot.querySelector('.bullet-content').innerText = entry.text;
+
+        // see if it's marked as done
+        if (entry.done == true) {
+            this.shadowRoot.querySelector(
+                '.bullet-content'
+            ).style.textDecoration = 'line-through';
+        }
+    }
+}
+
+customElements.define('goals-entry', GoalsEntry);
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#checkingDeploy">checkingDeploy</a></li><li><a href="global.html#collapsible_year_toggle">collapsible_year_toggle</a></li><li><a href="global.html#createDay">createDay</a></li><li><a href="global.html#createMonthlyGoals">createMonthlyGoals</a></li><li><a href="global.html#createSettings">createSettings</a></li><li><a href="global.html#createYearlyGoals">createYearlyGoals</a></li><li><a href="global.html#dayNumber">dayNumber</a></li><li><a href="global.html#db">db</a></li><li><a href="global.html#DB_NAME">DB_NAME</a></li><li><a href="global.html#DB_VERSION">DB_VERSION</a></li><li><a href="global.html#deleteDay">deleteDay</a></li><li><a href="global.html#deleteMockData">deleteMockData</a></li><li><a href="global.html#deleteMonthlyGoals">deleteMonthlyGoals</a></li><li><a href="global.html#deleteSettings">deleteSettings</a></li><li><a href="global.html#deleteYearlyGoals">deleteYearlyGoals</a></li><li><a href="global.html#editMockData">editMockData</a></li><li><a href="global.html#fetchMonthGoals">fetchMonthGoals</a></li><li><a href="global.html#fetchYearGoals">fetchYearGoals</a></li><li><a href="global.html#firstDow">firstDow</a></li><li><a href="global.html#getDay">getDay</a></li><li><a href="global.html#getDimensions">getDimensions</a></li><li><a href="global.html#getLoginState">getLoginState</a></li><li><a href="global.html#getMockData">getMockData</a></li><li><a href="global.html#getMonthlyGoals">getMonthlyGoals</a></li><li><a href="global.html#getSettings">getSettings</a></li><li><a href="global.html#getYearlyGoals">getYearlyGoals</a></li><li><a href="global.html#goHome">goHome</a></li><li><a href="global.html#handleLogin">handleLogin</a></li><li><a href="global.html#handleSignup">handleSignup</a></li><li><a href="global.html#initDay">initDay</a></li><li><a href="global.html#initDB">initDB</a></li><li><a href="global.html#initGoal">initGoal</a></li><li><a href="global.html#initMonth">initMonth</a></li><li><a href="global.html#initYear">initYear</a></li><li><a href="global.html#lastDow">lastDow</a></li><li><a href="global.html#monthNumber">monthNumber</a></li><li><a href="global.html#renderBullets">renderBullets</a></li><li><a href="global.html#renderChild">renderChild</a></li><li><a href="global.html#renderGoals">renderGoals</a></li><li><a href="global.html#renderPhotos">renderPhotos</a></li><li><a href="global.html#requestDay">requestDay</a></li><li><a href="global.html#setDB">setDB</a></li><li><a href="global.html#setNewUser">setNewUser</a></li><li><a href="global.html#setReturningUser">setReturningUser</a></li><li><a href="global.html#setSelected">setSelected</a></li><li><a href="global.html#setupCalendar">setupCalendar</a></li><li><a href="global.html#setUpMockData">setUpMockData</a></li><li><a href="global.html#storageSession">storageSession</a></li><li><a href="global.html#updateDay">updateDay</a></li><li><a href="global.html#updateMonthlyGoals">updateMonthlyGoals</a></li><li><a href="global.html#updateNote">updateNote</a></li><li><a href="global.html#updateSettings">updateSettings</a></li><li><a href="global.html#updateYearsGoals">updateYearsGoals</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Tue Apr 26 2022 20:48:00 GMT+0000 (Coordinated Universal Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
