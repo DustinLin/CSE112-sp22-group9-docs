@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Login/Login.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Login/Login.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import {
+    GoogleAuthProvider,
+    browserSessionPersistence,
+    createUserWithEmailAndPassword,
+    getAdditionalUserInfo,
+    signInWithEmailAndPassword,
+    signInWithPopup,
+} from '../Backend/firebase-src/firebase-auth.min.js';
+import { auth, db, googleProvider } from '../Backend/FirebaseInit.js';
+import { isValidEmail, isValidPassword } from '../Backend/BackendInit.js';
+import { ref, set } from '../Backend/firebase-src/firebase-database.min.js';
+
+window.onload = () => {
+    loginSignUpSetup();
+    togglePasswordSetup();
+};
+
+/**
+ * Make pop up alert with custom css and text that is passed in
+ * @param {String} text
+ */
+function customAlert(text) {
+    const closeButtonHTML =
+        '&lt;span ' +
+        'class="closebtn" ' +
+        'onclick="this.parentElement.style.display=\'none\';"> ' +
+        '&amp;times;' +
+        '&lt;/span>';
+    document.querySelector('.alert').style.display = 'block';
+    document.querySelector('.alert').innerHTML = `${closeButtonHTML}${text}`;
+}
+
+/**
+ * Sign in with the Google.
+ * Authentication persistence is Session based.
+ */
+function googleSignIn() {
+    // set session persistence so status unchanged after refreshing
+    auth.setPersistence(browserSessionPersistence).then(() => {
+        signInWithPopup(auth, googleProvider)
+            .then((result) => {
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                const credential = GoogleAuthProvider.credentialFromResult(
+                    result
+                );
+                const token = credential.accessToken;
+                // The signed-in user info.
+                const user = result.user;
+                const isNewUser = getAdditionalUserInfo(result).isNewUser;
+
+                console.log(`User ${user.email} signed in. Token: ${token}`);
+
+                // add default data for new users
+                if (isNewUser) {
+                    let data = {
+                        email: user.email,
+                        theme: '#d4ffd4',
+                    };
+                    set(ref(db, `${user.uid}`), data).then(() => {
+                        customAlert('Successfully signed in!');
+                        window.location.replace(
+                            '../WeeklyOverview/WeeklyOverview.html'
+                        );
+                    });
+                } else {
+                    customAlert('Successfully signed in!');
+                    window.location.replace(
+                        '../WeeklyOverview/WeeklyOverview.html'
+                    );
+                }
+            })
+            .catch((error) => {
+                // Handle Errors here.
+                // const errorCode = error.code;
+                // const errorMessage = error.message;
+                // The email of the user's account used.
+                // const email = error.customData.email;
+                // The AuthCredential type that was used.
+                // const credential = GoogleAuthProvider.credentialFromError(error);
+                customAlert(error.message);
+            });
+    });
+}
+
+/**
+ * Set up event listeners for various login/signup buttons
+ */
+function loginSignUpSetup() {
+    const loginBtn = document.getElementById('login-button');
+
+    // Enter event handlers
+    const userInputFields = document.querySelectorAll('.user-input');
+    for (const userInputField of userInputFields) {
+        userInputField.addEventListener('keypress', (e) => {
+            if (e.key == 'Enter') {
+                loginBtn.dispatchEvent(new Event('click'));
+            }
+        });
+    }
+
+    // trigger login / signup event depending on what mode the page is in
+    // (either login or signup mode)
+    loginBtn.onclick = () => {
+        if (loginBtn.innerText === 'LOGIN') {
+            signIn();
+        } else {
+            signUp();
+        }
+    };
+
+    // change view of login and signup if the sign up button is clicked
+    const signupBtn = document.getElementById('signup-button');
+    signupBtn.onclick = () => {
+        if (signupBtn.innerText === 'LOGIN') {
+            setLogin();
+        } else {
+            setSignUp();
+        }
+    };
+
+    // login event with Google authentication
+    const googleLoginBtn = document.getElementById('google-button');
+    googleLoginBtn.addEventListener('click', () => googleSignIn());
+}
+
+/**
+ * Modify login page to login mode
+ */
+function setLogin() {
+    document.getElementById('title').innerText = 'Login to your Account';
+    document.getElementById('google-button').innerHTML =
+        '&lt;img src="../Images/google.png">Sign in with Google';
+    document.getElementById('sign-in-email-text').innerText =
+        'or sign in with email';
+    document.getElementById('sign-up-text').innerText =
+        // eslint-disable-next-line
+        "Don't have an account?";
+    document.getElementById('passConfirm').style.display = 'none';
+    document.getElementById('passReq').style.display = 'none';
+
+    document.getElementById('login-button').innerText = 'LOGIN';
+    document.getElementById('signup-button').innerText = 'SIGN UP';
+}
+
+/**
+ * Modify login page from login mode to signup mode
+ */
+function setSignUp() {
+    document.getElementById('title').innerText = 'Make your Account';
+
+    document.getElementById('passConfirm').style.display = 'flex';
+    document.getElementById('passReq').style.display = 'flex';
+    document.getElementById('sign-in-email-text').innerText =
+        'or sign up with email';
+    document.getElementById('google-button').innerHTML =
+        '&lt;img src="../Images/google.png">Sign up with Google';
+    document.getElementById('sign-up-text').innerText =
+        'Already have an account?';
+
+    document.getElementById('login-button').innerText = 'SIGN UP';
+    document.getElementById('signup-button').innerText = 'LOGIN';
+}
+
+/**
+ * Sign in with the email and pin from the user input.
+ * Authentication persistence is Session based.
+ */
+function signIn() {
+    let userEmail = document.getElementById('email').value;
+    let password = document.getElementById('pin').value;
+
+    // validity check
+    if (!isValidEmail(userEmail)) {
+        customAlert('Invalid Email!');
+        return;
+    }
+
+    // set session persistence so status unchanged after refreshing
+    auth.setPersistence(browserSessionPersistence).then(() => {
+        signInWithEmailAndPassword(auth, userEmail, password)
+            // eslint-disable-next-line no-unused-vars
+            .then((userCredential) => {
+                customAlert('Successfully signed in!');
+                window.location.replace(
+                    '../WeeklyOverview/WeeklyOverview.html'
+                );
+            })
+            .catch((error) => {
+                customAlert('Login Failed: ' + error.message);
+            });
+    });
+}
+
+/**
+ * New user sign up with email and password given.
+ */
+function signUp() {
+    let userEmail = document.getElementById('email').value;
+    let password = document.getElementById('pin').value;
+    let passConfirm = document.getElementById('passConf').value;
+
+    // validity check
+    if (!isValidEmail(userEmail)) {
+        return;
+    }
+
+    // errMsg will contain a string of an error message is the password doesn't met criteria
+    let errMsg = isValidPassword(password);
+    if (errMsg !== '') {
+        // displays custom error message
+        customAlert(errMsg);
+        return;
+    }
+
+    // ensure password is the same as confirmed password
+    if (password !== passConfirm) {
+        customAlert('Password and re-typed password are different!');
+        return;
+    }
+
+    auth.setPersistence(browserSessionPersistence).then(() => {
+        createUserWithEmailAndPassword(auth, userEmail, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                if (user) {
+                    let data = {
+                        email: userEmail,
+                        theme: '#d4ffd4',
+                        bannerImage: 'default',
+                    };
+
+                    // add user data to db
+                    set(ref(db, `${user.uid}`), data).then(() => {
+                        customAlert('Successful Sign Up');
+                        window.location.replace(
+                            '../WeeklyOverview/WeeklyOverview.html'
+                        );
+                    });
+                }
+            })
+            .catch((error) => {
+                customAlert(error.message);
+            });
+    });
+}
+
+/**
+ * Toggle the eye logo depending on its current state
+ */
+function togglePasswordSetup() {
+    const togPassword = document.querySelector('.right-icons');
+    const password = document.querySelector('.pass');
+
+    // Show or hide password
+    togPassword.addEventListener('click', function () {
+        const type =
+            password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        if (type === 'password') {
+            togPassword.setAttribute('src', '../Images/show-pass.png');
+        } else {
+            togPassword.setAttribute('src', '../Images/hide-pass.png');
+        }
+    });
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addGoalListeners">addGoalListeners</a></li><li><a href="global.html#addPhoto">addPhoto</a></li><li><a href="global.html#appendBulletToList">appendBulletToList</a></li><li><a href="global.html#bulletChangeResolution">bulletChangeResolution</a></li><li><a href="global.html#bulletParser">bulletParser</a></li><li><a href="global.html#createDay">createDay</a></li><li><a href="global.html#createMonthlyGoals">createMonthlyGoals</a></li><li><a href="global.html#createYearlyGoals">createYearlyGoals</a></li><li><a href="global.html#customAlert">customAlert</a></li><li><a href="global.html#dayNumber">dayNumber</a></li><li><a href="global.html#daysInMonth">daysInMonth</a></li><li><a href="global.html#deleteDay">deleteDay</a></li><li><a href="global.html#deleteMonthlyGoals">deleteMonthlyGoals</a></li><li><a href="global.html#deleteObjAtDBPath">deleteObjAtDBPath</a></li><li><a href="global.html#deletePhoto">deletePhoto</a></li><li><a href="global.html#deleteYearlyGoals">deleteYearlyGoals</a></li><li><a href="global.html#fetchGoals">fetchGoals</a></li><li><a href="global.html#firstDow">firstDow</a></li><li><a href="global.html#generalBulletListener">generalBulletListener</a></li><li><a href="global.html#generalOp">generalOp</a></li><li><a href="global.html#getBannerImage">getBannerImage</a></li><li><a href="global.html#getBase64">getBase64</a></li><li><a href="global.html#getBulletList">getBulletList</a></li><li><a href="global.html#getCurrentDate">getCurrentDate</a></li><li><a href="global.html#getCurrentWeek">getCurrentWeek</a></li><li><a href="global.html#getDataAtDBPath">getDataAtDBPath</a></li><li><a href="global.html#getDay">getDay</a></li><li><a href="global.html#getDimensions">getDimensions</a></li><li><a href="global.html#getMonthlyGoals">getMonthlyGoals</a></li><li><a href="global.html#getMonthName">getMonthName</a></li><li><a href="global.html#getMonthObj">getMonthObj</a></li><li><a href="global.html#getProfileImage">getProfileImage</a></li><li><a href="global.html#getTheme">getTheme</a></li><li><a href="global.html#getUserID">getUserID</a></li><li><a href="global.html#getYearlyGoals">getYearlyGoals</a></li><li><a href="global.html#goalListenerRemoval">goalListenerRemoval</a></li><li><a href="global.html#goalListenerSetup">goalListenerSetup</a></li><li><a href="global.html#googleSignIn">googleSignIn</a></li><li><a href="global.html#isValidEmail">isValidEmail</a></li><li><a href="global.html#isValidPassword">isValidPassword</a></li><li><a href="global.html#lastDow">lastDow</a></li><li><a href="global.html#loadBannerImage">loadBannerImage</a></li><li><a href="global.html#loadGoalReminders">loadGoalReminders</a></li><li><a href="global.html#loadNotes">loadNotes</a></li><li><a href="global.html#loadProfileImage">loadProfileImage</a></li><li><a href="global.html#loadTheme">loadTheme</a></li><li><a href="global.html#loadWeek">loadWeek</a></li><li><a href="global.html#loginSignUpSetup">loginSignUpSetup</a></li><li><a href="global.html#monthNumber">monthNumber</a></li><li><a href="global.html#populateGoalList">populateGoalList</a></li><li><a href="global.html#processBullet">processBullet</a></li><li><a href="global.html#processCurrentImage">processCurrentImage</a></li><li><a href="global.html#removeGoalListeners">removeGoalListeners</a></li><li><a href="global.html#renderBullets">renderBullets</a></li><li><a href="global.html#renderGoals">renderGoals</a></li><li><a href="global.html#renderPhotos">renderPhotos</a></li><li><a href="global.html#requestDay">requestDay</a></li><li><a href="global.html#setBulletFeature">setBulletFeature</a></li><li><a href="global.html#setBulletText">setBulletText</a></li><li><a href="global.html#setLogin">setLogin</a></li><li><a href="global.html#setSignUp">setSignUp</a></li><li><a href="global.html#setupCalendar">setupCalendar</a></li><li><a href="global.html#signIn">signIn</a></li><li><a href="global.html#signUp">signUp</a></li><li><a href="global.html#submitGoal">submitGoal</a></li><li><a href="global.html#toggleBulletStatus">toggleBulletStatus</a></li><li><a href="global.html#togglePasswordSetup">togglePasswordSetup</a></li><li><a href="global.html#updateBannerImage">updateBannerImage</a></li><li><a href="global.html#updateDay">updateDay</a></li><li><a href="global.html#updateMonthlyGoals">updateMonthlyGoals</a></li><li><a href="global.html#updateNote">updateNote</a></li><li><a href="global.html#updateNotes">updateNotes</a></li><li><a href="global.html#updateObjAtDBPath">updateObjAtDBPath</a></li><li><a href="global.html#updateProfileImage">updateProfileImage</a></li><li><a href="global.html#updateTheme">updateTheme</a></li><li><a href="global.html#updateYearlyGoals">updateYearlyGoals</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Thu Jun 09 2022 04:18:25 GMT+0000 (Coordinated Universal Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: MonthlyOverview/goals.js</title>
+    <title>JSDoc: Source: General-JS/goals.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: MonthlyOverview/goals.js</h1>
+    <h1 class="page-title">Source: General-JS/goals.js</h1>
 
     
 
@@ -34,7 +34,7 @@ class GoalsEntry extends HTMLElement {
 
         template.innerHTML = `
             &lt;style>
-                .bullet{
+                .bullet {
                     word-break: break-all;
                     max-width: 100%;
                     font-size: 2.3vh;
@@ -95,7 +95,7 @@ class GoalsEntry extends HTMLElement {
                 }
             &lt;/style>
             &lt;article class="bullet">
-            &lt;div id="container">
+            &lt;div id="container" style="margin-left:10px;">
                 &lt;ul>
                     &lt;li>
                         &lt;span class="bullet-content">Setting text&lt;/span>
@@ -104,7 +104,7 @@ class GoalsEntry extends HTMLElement {
                         &lt;div class="dropdown">
                             &lt;p id="edit">Edit&lt;/p>
                             &lt;p id="delete">Delete&lt;/p>
-                            &lt;p id="done">Mark Done&lt;/p>
+                            &lt;p id="done">Toggle Done&lt;/p>
                         &lt;/div>
                     &lt;/div>
                     &lt;/li>
@@ -119,6 +119,10 @@ class GoalsEntry extends HTMLElement {
         // edit goal through a prompt
         this.shadowRoot.querySelector('#edit').addEventListener('click', () => {
             let newJson = JSON.parse(this.getAttribute('goalJson'));
+            if (newJson === null || newJson === undefined) {
+                newJson = {};
+            }
+
             let editedEntry = prompt(
                 'Edit Bullet',
                 this.shadowRoot.querySelector('.bullet-content').innerText
@@ -198,13 +202,13 @@ customElements.define('goals-entry', GoalsEntry);
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#checkingDeploy">checkingDeploy</a></li><li><a href="global.html#collapsible_year_toggle">collapsible_year_toggle</a></li><li><a href="global.html#createDay">createDay</a></li><li><a href="global.html#createMonthlyGoals">createMonthlyGoals</a></li><li><a href="global.html#createSettings">createSettings</a></li><li><a href="global.html#createYearlyGoals">createYearlyGoals</a></li><li><a href="global.html#dayNumber">dayNumber</a></li><li><a href="global.html#db">db</a></li><li><a href="global.html#DB_NAME">DB_NAME</a></li><li><a href="global.html#DB_VERSION">DB_VERSION</a></li><li><a href="global.html#deleteDay">deleteDay</a></li><li><a href="global.html#deleteMockData">deleteMockData</a></li><li><a href="global.html#deleteMonthlyGoals">deleteMonthlyGoals</a></li><li><a href="global.html#deleteSettings">deleteSettings</a></li><li><a href="global.html#deleteYearlyGoals">deleteYearlyGoals</a></li><li><a href="global.html#editMockData">editMockData</a></li><li><a href="global.html#fetchMonthGoals">fetchMonthGoals</a></li><li><a href="global.html#fetchYearGoals">fetchYearGoals</a></li><li><a href="global.html#firstDow">firstDow</a></li><li><a href="global.html#getDay">getDay</a></li><li><a href="global.html#getDimensions">getDimensions</a></li><li><a href="global.html#getLoginState">getLoginState</a></li><li><a href="global.html#getMockData">getMockData</a></li><li><a href="global.html#getMonthlyGoals">getMonthlyGoals</a></li><li><a href="global.html#getSettings">getSettings</a></li><li><a href="global.html#getYearlyGoals">getYearlyGoals</a></li><li><a href="global.html#goHome">goHome</a></li><li><a href="global.html#handleLogin">handleLogin</a></li><li><a href="global.html#handleSignup">handleSignup</a></li><li><a href="global.html#initDay">initDay</a></li><li><a href="global.html#initDB">initDB</a></li><li><a href="global.html#initGoal">initGoal</a></li><li><a href="global.html#initMonth">initMonth</a></li><li><a href="global.html#initYear">initYear</a></li><li><a href="global.html#lastDow">lastDow</a></li><li><a href="global.html#monthNumber">monthNumber</a></li><li><a href="global.html#renderBullets">renderBullets</a></li><li><a href="global.html#renderChild">renderChild</a></li><li><a href="global.html#renderGoals">renderGoals</a></li><li><a href="global.html#renderPhotos">renderPhotos</a></li><li><a href="global.html#requestDay">requestDay</a></li><li><a href="global.html#setDB">setDB</a></li><li><a href="global.html#setNewUser">setNewUser</a></li><li><a href="global.html#setReturningUser">setReturningUser</a></li><li><a href="global.html#setSelected">setSelected</a></li><li><a href="global.html#setupCalendar">setupCalendar</a></li><li><a href="global.html#setUpMockData">setUpMockData</a></li><li><a href="global.html#storageSession">storageSession</a></li><li><a href="global.html#updateDay">updateDay</a></li><li><a href="global.html#updateMonthlyGoals">updateMonthlyGoals</a></li><li><a href="global.html#updateNote">updateNote</a></li><li><a href="global.html#updateSettings">updateSettings</a></li><li><a href="global.html#updateYearsGoals">updateYearsGoals</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addGoalListeners">addGoalListeners</a></li><li><a href="global.html#addPhoto">addPhoto</a></li><li><a href="global.html#appendBulletToList">appendBulletToList</a></li><li><a href="global.html#bulletChangeResolution">bulletChangeResolution</a></li><li><a href="global.html#bulletParser">bulletParser</a></li><li><a href="global.html#createDay">createDay</a></li><li><a href="global.html#createMonthlyGoals">createMonthlyGoals</a></li><li><a href="global.html#createYearlyGoals">createYearlyGoals</a></li><li><a href="global.html#customAlert">customAlert</a></li><li><a href="global.html#dayNumber">dayNumber</a></li><li><a href="global.html#daysInMonth">daysInMonth</a></li><li><a href="global.html#deleteDay">deleteDay</a></li><li><a href="global.html#deleteMonthlyGoals">deleteMonthlyGoals</a></li><li><a href="global.html#deleteObjAtDBPath">deleteObjAtDBPath</a></li><li><a href="global.html#deletePhoto">deletePhoto</a></li><li><a href="global.html#deleteYearlyGoals">deleteYearlyGoals</a></li><li><a href="global.html#fetchGoals">fetchGoals</a></li><li><a href="global.html#firstDow">firstDow</a></li><li><a href="global.html#generalBulletListener">generalBulletListener</a></li><li><a href="global.html#generalOp">generalOp</a></li><li><a href="global.html#getBannerImage">getBannerImage</a></li><li><a href="global.html#getBase64">getBase64</a></li><li><a href="global.html#getBulletList">getBulletList</a></li><li><a href="global.html#getCurrentDate">getCurrentDate</a></li><li><a href="global.html#getCurrentWeek">getCurrentWeek</a></li><li><a href="global.html#getDataAtDBPath">getDataAtDBPath</a></li><li><a href="global.html#getDay">getDay</a></li><li><a href="global.html#getDimensions">getDimensions</a></li><li><a href="global.html#getMonthlyGoals">getMonthlyGoals</a></li><li><a href="global.html#getMonthName">getMonthName</a></li><li><a href="global.html#getMonthObj">getMonthObj</a></li><li><a href="global.html#getProfileImage">getProfileImage</a></li><li><a href="global.html#getTheme">getTheme</a></li><li><a href="global.html#getUserID">getUserID</a></li><li><a href="global.html#getYearlyGoals">getYearlyGoals</a></li><li><a href="global.html#goalListenerRemoval">goalListenerRemoval</a></li><li><a href="global.html#goalListenerSetup">goalListenerSetup</a></li><li><a href="global.html#googleSignIn">googleSignIn</a></li><li><a href="global.html#isValidEmail">isValidEmail</a></li><li><a href="global.html#isValidPassword">isValidPassword</a></li><li><a href="global.html#lastDow">lastDow</a></li><li><a href="global.html#loadBannerImage">loadBannerImage</a></li><li><a href="global.html#loadGoalReminders">loadGoalReminders</a></li><li><a href="global.html#loadNotes">loadNotes</a></li><li><a href="global.html#loadProfileImage">loadProfileImage</a></li><li><a href="global.html#loadTheme">loadTheme</a></li><li><a href="global.html#loadWeek">loadWeek</a></li><li><a href="global.html#loginSignUpSetup">loginSignUpSetup</a></li><li><a href="global.html#monthNumber">monthNumber</a></li><li><a href="global.html#populateGoalList">populateGoalList</a></li><li><a href="global.html#processBullet">processBullet</a></li><li><a href="global.html#processCurrentImage">processCurrentImage</a></li><li><a href="global.html#removeGoalListeners">removeGoalListeners</a></li><li><a href="global.html#renderBullets">renderBullets</a></li><li><a href="global.html#renderGoals">renderGoals</a></li><li><a href="global.html#renderPhotos">renderPhotos</a></li><li><a href="global.html#requestDay">requestDay</a></li><li><a href="global.html#setBulletFeature">setBulletFeature</a></li><li><a href="global.html#setBulletText">setBulletText</a></li><li><a href="global.html#setLogin">setLogin</a></li><li><a href="global.html#setSignUp">setSignUp</a></li><li><a href="global.html#setupCalendar">setupCalendar</a></li><li><a href="global.html#signIn">signIn</a></li><li><a href="global.html#signUp">signUp</a></li><li><a href="global.html#submitGoal">submitGoal</a></li><li><a href="global.html#toggleBulletStatus">toggleBulletStatus</a></li><li><a href="global.html#togglePasswordSetup">togglePasswordSetup</a></li><li><a href="global.html#updateBannerImage">updateBannerImage</a></li><li><a href="global.html#updateDay">updateDay</a></li><li><a href="global.html#updateMonthlyGoals">updateMonthlyGoals</a></li><li><a href="global.html#updateNote">updateNote</a></li><li><a href="global.html#updateNotes">updateNotes</a></li><li><a href="global.html#updateObjAtDBPath">updateObjAtDBPath</a></li><li><a href="global.html#updateProfileImage">updateProfileImage</a></li><li><a href="global.html#updateTheme">updateTheme</a></li><li><a href="global.html#updateYearlyGoals">updateYearlyGoals</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Tue Apr 26 2022 20:52:54 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Thu Jun 09 2022 04:18:25 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>

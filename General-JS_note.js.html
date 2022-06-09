@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: General-JS/note.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,99 +17,79 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: General-JS/note.js</h1>
 
     
 
 
 
     
-
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
     <section>
-        <article><h1><s>Group 12</s> Now Group 9 in 112 - Stegosource</h1>
-<p><a href="https://cse112-sp22-group9.github.io/cse112-sp22-group9/">Bullet Journal</a></p>
-<h3>Documentation Site</h3>
-<p>our jsDocs are hosted <a href="https://dustinlin.github.io/CSE112-sp22-group9-docs/">here</a></p>
-<h3>Description of Project</h3>
-<p>Our project will be a digital bullet journal. The bullet journal give users the ability to keep track of both long-term and short-term goals. They are able to see the goals that they have set for the month and the year. We also give users the ability to save photos every day so that they can come back to that day later on and look at them. It now has a nice weekly overview on the landing page to see the week at a glance and additionally a calendar page to see how tasks are spread out and navigate to certain day of the months and years. There is a secure login now which allows multiple users on a device as well as users being able to use multiple devices.</p>
-<h3>Repository Table of Contents</h3>
-<ul>
-<li>.github/
-<ul>
-<li>ISSUE_TEMPLATE/</li>
-<li>workflows/</li>
-</ul>
-</li>
-<li>.husky/
-<ul>
-<li>hooks/</li>
-</ul>
-</li>
-<li>admin/
-<ul>
-<li>branding/</li>
-<li>cipipline/</li>
-<li>meetings/</li>
-<li>rules/</li>
-<li>misc/</li>
-<li>videos/</li>
-</ul>
-</li>
-<li>deprecated-source/
-<ul>
-<li>Backend/</li>
-<li>Index/</li>
-<li>Login/</li>
-<li>MonthlyOverview/</li>
-<li>YearlyOverview/</li>
-</ul>
-</li>
-<li>mil-notes/</li>
-<li>source/
-<ul>
-<li>Backend/</li>
-<li>Calendar/</li>
-<li>DailyOverview/</li>
-<li>General-JS/</li>
-<li>Images/</li>
-<li>Login/</li>
-<li>tests/</li>
-<li>WeeklyOverview/</li>
-</ul>
-</li>
-<li>specs/
-<ul>
-<li>adr/</li>
-<li>brainstorm/</li>
-<li>interface/
-<ul>
-<li>UI/</li>
-<li>wireframes/</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul></article>
+        <article>
+            <pre class="prettyprint source linenums"><code>// &lt;note-box> custom web component
+class noteBox extends HTMLElement {
+    constructor() {
+        super();
+
+        const template = document.createElement('template');
+
+        template.innerHTML = `
+            &lt;style>
+                * {
+                    font-size: 2vh;
+                    color: black;
+                }
+                .noteContent{
+                    overflow-y: scroll;
+                    resize: none;
+                    width: 100%;
+                    height: 15vh;
+                    padding: none;
+                    border-style: none; 
+                    font-family: 'Montserrat', Montserrat;
+                }
+                .note{
+                    //word-break: break-all;
+                }
+            &lt;/style>
+            &lt;div id="note">
+                &lt;textarea class="noteContent" placeholder="insert text">&lt;/textarea>
+            &lt;/div>
+
+            `;
+
+        this.attachShadow({ mode: 'open' });
+        this.shadowRoot.appendChild(template.content.cloneNode(true));
+
+        this.shadowRoot
+            .querySelector('.noteContent')
+            .addEventListener('input', updateValue);
+
+        function updateValue(e) {
+            this.innerHTML = e.target.value;
+        }
+    }
+
+    /**
+     * when getting the entry, return just the text for now
+     */
+    get entry() {
+        let entryObj = {
+            content: this.shadowRoot.querySelector('.noteContent').innerHTML,
+        };
+        return entryObj;
+    }
+
+    set entry(str) {
+        // set the text of the entry
+        this.shadowRoot.querySelector('.noteContent').innerHTML = str;
+    }
+}
+
+customElements.define('note-box', noteBox);
+</code></pre>
+        </article>
     </section>
-
-
 
 
 

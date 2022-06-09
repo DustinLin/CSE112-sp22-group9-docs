@@ -94,263 +94,6 @@
     
 
     
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-<h4 class="name" id="db"><span class="type-signature"></span>db<span class="type-signature"></span></h4>
-
-
-
-
-<div class="description">
-    will contain the db object returned from "initDB()" to be used in
-creating future transactions, has to be set via "setDB()"
-</div>
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line22">line 22</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="DB_NAME"><span class="type-signature">(constant) </span>DB_NAME<span class="type-signature"></span></h4>
-
-
-
-
-<div class="description">
-    Want to first check if database exists, and if not, set it up
-a constant name to our database
-</div>
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line8">line 8</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="DB_VERSION"><span class="type-signature">(constant) </span>DB_VERSION<span class="type-signature"></span></h4>
-
-
-
-
-<div class="description">
-    A constant of our database version
-</div>
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line13">line 13</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="storageSession"><span class="type-signature"></span>storageSession<span class="type-signature"></span></h4>
-
-
-
-
-<div class="description">
-    gets the current session storage,
-lasts as long as the tab or the browser is open
-survives between reloads
--new tabs or closing it will refresh the session
-</div>
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Login_LoginJS.js.html">Login/LoginJS.js</a>, <a href="Login_LoginJS.js.html#line19">line 19</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-    
 
     
         <h3 class="subsection-title">Methods</h3>
@@ -361,7 +104,7 @@ survives between reloads
     
 
     
-    <h4 class="name" id="checkingDeploy"><span class="type-signature"></span>checkingDeploy<span class="signature">(param)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="addGoalListeners"><span class="type-signature"></span>addGoalListeners<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
@@ -369,7 +112,96 @@ survives between reloads
 
 
 <div class="description">
-    Simple test function to make sure deployment to new CSE112 jsDocs website works, can remove
+    Add goal listeners for adding, editing, deleting, and marking monthly/yearly
+goals as complete
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Calendar_Calendar.js.html">Calendar/Calendar.js</a>, <a href="Calendar_Calendar.js.html#line82">line 82</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="addPhoto"><span class="type-signature">(async) </span>addPhoto<span class="signature">(date, photo)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    add a base64 encoded photo in the database
 </div>
 
 
@@ -405,13 +237,13 @@ survives between reloads
 
         <tr>
             
-                <td class="name"><code>param</code></td>
+                <td class="name"><code>date</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">*</span>
+<span class="param-type">String</span>
 
 
             
@@ -421,7 +253,30 @@ survives between reloads
 
             
 
-            <td class="description last">testing docs</td>
+            <td class="description last">string of the form "mm/dd/yyyy"</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>photo</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">File</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">as file-type that will be converted to base64</td>
         </tr>
 
     
@@ -462,7 +317,7 @@ survives between reloads
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Login_LoginJS.js.html">Login/LoginJS.js</a>, <a href="Login_LoginJS.js.html#line9">line 9</a>
+        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line44">line 44</a>
     </li></ul></dd>
     
 
@@ -487,6 +342,21 @@ survives between reloads
 
 
 
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    void
+Here is a comment for the purposes of "adding a small change"
+to the repo
+
+Want to first check if database exists, and if not, set it up
+a constant name to our database
+</div>
+
+
+
+    
 
 
 
@@ -498,7 +368,7 @@ survives between reloads
     
 
     
-    <h4 class="name" id="collapsible_year_toggle"><span class="type-signature"></span>collapsible_year_toggle<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="appendBulletToList"><span class="type-signature"></span>appendBulletToList<span class="signature">(bullet, list)</span><span class="type-signature"></span></h4>
     
 
     
@@ -506,7 +376,7 @@ survives between reloads
 
 
 <div class="description">
-    Shows or hides collapsible_child of button
+    add a bullet to a specified unordered list
 </div>
 
 
@@ -515,6 +385,80 @@ survives between reloads
 
 
 
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>bullet</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">can either be a goals object (with keys text and
+done) or a bullet object (with keys text, done, features, and possibly
+childList)</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>list</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">HTMLElement</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the unordered list we add the parsed bullet to</td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -550,7 +494,7 @@ survives between reloads
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Index_IndexJS.js.html">Index/IndexJS.js</a>, <a href="Index_IndexJS.js.html#line51">line 51</a>
+        <a href="WeeklyOverview_Weekly.js.html">WeeklyOverview/Weekly.js</a>, <a href="WeeklyOverview_Weekly.js.html#line39">line 39</a>
     </li></ul></dd>
     
 
@@ -596,7 +540,7 @@ survives between reloads
     
 
     
-    <h4 class="name" id="createDay"><span class="type-signature"></span>createDay<span class="signature">(dayObj)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="bulletChangeResolution"><span class="type-signature"></span>bulletChangeResolution<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
@@ -604,7 +548,280 @@ survives between reloads
 
 
 <div class="description">
-    given a day object, will create an entry in the database
+    When a bullet is updated in any way, clear the 'New Bullet Text' input field,
+re-render all bullets, and update the database
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="DailyOverview_Daily.js.html">DailyOverview/Daily.js</a>, <a href="DailyOverview_Daily.js.html#line68">line 68</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    void
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="bulletParser"><span class="type-signature"></span>bulletParser<span class="signature">(bullets, list)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    recursively build all the bullets for the passed-in bullet list and append
+the final list into the passed-in list
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>bullets</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">object that contains the bullet notes for a
+                          particular day</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>list</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">HTMLElement:ul</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">unordered list where bullet elements (li) are
+                               appended to</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="WeeklyOverview_Weekly.js.html">WeeklyOverview/Weekly.js</a>, <a href="WeeklyOverview_Weekly.js.html#line70">line 70</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    void
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="createDay"><span class="type-signature">(async) </span>createDay<span class="signature">(dayObj)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Create Day
+given a day object, will create an entry in the database
 </div>
 
 
@@ -688,7 +905,7 @@ survives between reloads
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">String</span>
 
 
             
@@ -698,7 +915,8 @@ survives between reloads
 
             
 
-            <td class="description last">date of the form "mm/dd/yyyy/" (ie: "02/28/2021")</td>
+            <td class="description last">date of the form "mm/dd/yyyy/"
+ (ie: "02/28/2021")</td>
         </tr>
 
     
@@ -757,7 +975,7 @@ survives between reloads
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">String</span>
 
 
             
@@ -815,7 +1033,7 @@ survives between reloads
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line239">line 239</a>
+        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line75">line 75</a>
     </li></ul></dd>
     
 
@@ -861,7 +1079,7 @@ survives between reloads
     
 
     
-    <h4 class="name" id="createMonthlyGoals"><span class="type-signature"></span>createMonthlyGoals<span class="signature">(monthObj)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="createMonthlyGoals"><span class="type-signature">(async) </span>createMonthlyGoals<span class="signature">(monthObj)</span><span class="type-signature"></span></h4>
     
 
     
@@ -869,7 +1087,7 @@ survives between reloads
 
 
 <div class="description">
-    creates a monthlyGoal object in the database given a monthlyGoal object
+    create db object for month
 </div>
 
 
@@ -947,13 +1165,13 @@ survives between reloads
 
         <tr>
             
-                <td class="name"><code>year</code></td>
+                <td class="name"><code>month</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">String</span>
 
 
             
@@ -963,7 +1181,8 @@ survives between reloads
 
             
 
-            <td class="description last">month and year in the form "mm/yyyy" (eg: "12/2020")</td>
+            <td class="description last">month and year in the form "mm/yyyy"
+ (eg: "12/2020")</td>
         </tr>
 
     
@@ -1034,7 +1253,7 @@ survives between reloads
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line383">line 383</a>
+        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line93">line 93</a>
     </li></ul></dd>
     
 
@@ -1080,7 +1299,7 @@ survives between reloads
     
 
     
-    <h4 class="name" id="createSettings"><span class="type-signature"></span>createSettings<span class="signature">(setting)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="createYearlyGoals"><span class="type-signature">(async) </span>createYearlyGoals<span class="signature">(yearObj)</span><span class="type-signature"></span></h4>
     
 
     
@@ -1088,249 +1307,7 @@ survives between reloads
 
 
 <div class="description">
-    stores a setting object in the database
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>setting</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>username</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">name of the user (ie: "Miranda")</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>password</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">password of the user (ie: "password")</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>theme</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">theme id of the user (ie: 0)</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line456">line 456</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    void
-</div>
-
-
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="createYearlyGoals"><span class="type-signature"></span>createYearlyGoals<span class="signature">(yearObj)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    given a yearlyGoals obj, creates a yearGoals object which contains the year, as well as a list of yearly goals
+    create db object for year
 </div>
 
 
@@ -1414,7 +1391,7 @@ survives between reloads
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">String</span>
 
 
             
@@ -1495,7 +1472,7 @@ survives between reloads
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line312">line 312</a>
+        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line109">line 109</a>
     </li></ul></dd>
     
 
@@ -1541,6 +1518,554 @@ survives between reloads
     
 
     
+    <h4 class="name" id="customAlert"><span class="type-signature"></span>customAlert<span class="signature">(text)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Make pop up alert with custom css and text that is passed in
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>text</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Calendar_Calendar.js.html">Calendar/Calendar.js</a>, <a href="Calendar_Calendar.js.html#line95">line 95</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="customAlert"><span class="type-signature"></span>customAlert<span class="signature">(text)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Make pop up alert with custom css and text that is passed in
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>text</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="DailyOverview_Daily.js.html">DailyOverview/Daily.js</a>, <a href="DailyOverview_Daily.js.html#line78">line 78</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="customAlert"><span class="type-signature"></span>customAlert<span class="signature">(text)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Make pop up alert with custom css and text that is passed in
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>text</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Login_Login.js.html">Login/Login.js</a>, <a href="Login_Login.js.html#line22">line 22</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="customAlert"><span class="type-signature"></span>customAlert<span class="signature">(text)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Make pop up alert with custom css and text that is passed in
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>text</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="WeeklyOverview_Weekly.js.html">WeeklyOverview/Weekly.js</a>, <a href="WeeklyOverview_Weekly.js.html#line81">line 81</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
     <h4 class="name" id="dayNumber"><span class="type-signature"></span>dayNumber<span class="signature">(day)</span><span class="type-signature"></span></h4>
     
 
@@ -1549,7 +2074,7 @@ survives between reloads
 
 
 <div class="description">
-    Formats the day number
+    Format the day number
 </div>
 
 
@@ -1591,7 +2116,7 @@ survives between reloads
             <td class="type">
             
                 
-<span class="param-type">*</span>
+<span class="param-type">String</span>
 
 
             
@@ -1642,7 +2167,7 @@ survives between reloads
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Index_Calendar.js.html">Index/Calendar.js</a>, <a href="Index_Calendar.js.html#line252">line 252</a>
+        <a href="Calendar_Calendar.js.html">Calendar/Calendar.js</a>, <a href="Calendar_Calendar.js.html#line117">line 117</a>
     </li></ul></dd>
     
 
@@ -1688,7 +2213,7 @@ survives between reloads
     
 
     
-    <h4 class="name" id="dayNumber"><span class="type-signature"></span>dayNumber<span class="signature">(day)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="daysInMonth"><span class="type-signature"></span>daysInMonth<span class="signature">(month, year)</span><span class="type-signature"></span></h4>
     
 
     
@@ -1696,7 +2221,7 @@ survives between reloads
 
 
 <div class="description">
-    Formats the day number
+    Get the number of days in a specified month - helper function
 </div>
 
 
@@ -1732,13 +2257,13 @@ survives between reloads
 
         <tr>
             
-                <td class="name"><code>day</code></td>
+                <td class="name"><code>month</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">*</span>
+<span class="param-type">String</span>
 
 
             
@@ -1748,7 +2273,31 @@ survives between reloads
 
             
 
-            <td class="description last">one-indexed day integer</td>
+            <td class="description last">0-indexed month for which we need to get number of
+days</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>year</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">year for which we need to get number of days</td>
         </tr>
 
     
@@ -1789,7 +2338,7 @@ survives between reloads
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="MonthlyOverview_MonthlyJS.js.html">MonthlyOverview/MonthlyJS.js</a>, <a href="MonthlyOverview_MonthlyJS.js.html#line299">line 299</a>
+        <a href="Calendar_Calendar.js.html">Calendar/Calendar.js</a>, <a href="Calendar_Calendar.js.html#line108">line 108</a>
     </li></ul></dd>
     
 
@@ -1818,7 +2367,7 @@ survives between reloads
 
         
 <div class="param-desc">
-    a day number string like "22" for 22nd day of month
+    number of days in a specified month
 </div>
 
 
@@ -1835,7 +2384,7 @@ survives between reloads
     
 
     
-    <h4 class="name" id="deleteDay"><span class="type-signature"></span>deleteDay<span class="signature">(date)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="deleteDay"><span class="type-signature">(async) </span>deleteDay<span class="signature">(dayStr)</span><span class="type-signature"></span></h4>
     
 
     
@@ -1843,7 +2392,7 @@ survives between reloads
 
 
 <div class="description">
-    takes a given date string and deletes that entry from the database
+    delete db object for day
 </div>
 
 
@@ -1879,13 +2428,13 @@ survives between reloads
 
         <tr>
             
-                <td class="name"><code>date</code></td>
+                <td class="name"><code>dayStr</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">String</span>
 
 
             
@@ -1895,7 +2444,7 @@ survives between reloads
 
             
 
-            <td class="description last">string of the form "mm/dd/yyyy"</td>
+            <td class="description last">date string of the form "mm/dd/yyyy"</td>
         </tr>
 
     
@@ -1936,7 +2485,7 @@ survives between reloads
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line280">line 280</a>
+        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line122">line 122</a>
     </li></ul></dd>
     
 
@@ -1982,7 +2531,7 @@ survives between reloads
     
 
     
-    <h4 class="name" id="deleteMockData"><span class="type-signature"></span>deleteMockData<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="deleteMonthlyGoals"><span class="type-signature">(async) </span>deleteMonthlyGoals<span class="signature">(monthStr)</span><span class="type-signature"></span></h4>
     
 
     
@@ -1990,96 +2539,7 @@ survives between reloads
 
 
 <div class="description">
-    sample function to delete the mock data from database
-IS NOW DEPRECATED
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line199">line 199</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="deleteMonthlyGoals"><span class="type-signature"></span>deleteMonthlyGoals<span class="signature">(monthStr)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    deletes monthly goal obejct associated with the given month string
+    deletes monthly goal object associated with the given month string
 </div>
 
 
@@ -2172,7 +2632,7 @@ IS NOW DEPRECATED
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line422">line 422</a>
+        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line135">line 135</a>
     </li></ul></dd>
     
 
@@ -2218,7 +2678,7 @@ IS NOW DEPRECATED
     
 
     
-    <h4 class="name" id="deleteSettings"><span class="type-signature"></span>deleteSettings<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="deleteObjAtDBPath"><span class="type-signature">(async) </span>deleteObjAtDBPath<span class="signature">(path)</span><span class="type-signature"></span></h4>
     
 
     
@@ -2226,7 +2686,7 @@ IS NOW DEPRECATED
 
 
 <div class="description">
-    deletes the setting object
+    delete object at db path
 </div>
 
 
@@ -2235,6 +2695,56 @@ IS NOW DEPRECATED
 
 
 
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">path to key you would like to delete eg:
+                       "${currentUserID}/2022/02/05"</td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -2270,7 +2780,7 @@ IS NOW DEPRECATED
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line494">line 494</a>
+        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line174">line 174</a>
     </li></ul></dd>
     
 
@@ -2316,7 +2826,7 @@ IS NOW DEPRECATED
     
 
     
-    <h4 class="name" id="deleteYearlyGoals"><span class="type-signature"></span>deleteYearlyGoals<span class="signature">(yearStr)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="deletePhoto"><span class="type-signature">(async) </span>deletePhoto<span class="signature">(monthStr, base64)</span><span class="type-signature"></span></h4>
     
 
     
@@ -2324,7 +2834,177 @@ IS NOW DEPRECATED
 
 
 <div class="description">
-    Deletes the given Yearly Goals under the year string
+    delete db object for month
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>monthStr</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">string of the form "xx/xxxx" eg: "02/2022"</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>base64</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">an encoding of an image from getBase64()</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line148">line 148</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    void
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="deleteYearlyGoals"><span class="type-signature">(async) </span>deleteYearlyGoals<span class="signature">(yearStr)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    delete db object for year
 </div>
 
 
@@ -2417,7 +3097,7 @@ IS NOW DEPRECATED
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line351">line 351</a>
+        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line189">line 189</a>
     </li></ul></dd>
     
 
@@ -2463,7 +3143,7 @@ IS NOW DEPRECATED
     
 
     
-    <h4 class="name" id="editMockData"><span class="type-signature"></span>editMockData<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="fetchGoals"><span class="type-signature">(async) </span>fetchGoals<span class="signature">(goalsObj, listId, newClass)</span><span class="type-signature"></span></h4>
     
 
     
@@ -2471,8 +3151,7 @@ IS NOW DEPRECATED
 
 
 <div class="description">
-    sample function to edit the mock data from database
-IS NOW DEPRECATED
+    load either monthly or yearly goals into respective list depending on input
 </div>
 
 
@@ -2483,192 +3162,100 @@ IS NOW DEPRECATED
 
 
 
-
-
-
-
-<dl class="details">
-
+    <h5>Parameters:</h5>
     
 
-    
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
 
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line212">line 212</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        <th>Type</th>
 
         
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>goalsObj</code></td>
             
 
-    
-
-    
-    <h4 class="name" id="fetchMonthGoals"><span class="type-signature"></span>fetchMonthGoals<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
 
 
+            
+            </td>
 
-<div class="description">
-    Gets the current month object (and creates one if one doesn't exist)
-also renders the monthly goals
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="DailyOverview_DailyJS.js.html">DailyOverview/DailyJS.js</a>, <a href="DailyOverview_DailyJS.js.html#line102">line 102</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    void
-</div>
-
-
-
-    
-
-
-
-
-
-        
             
 
-    
+            
+
+            <td class="description last">the object containing monthly/yearly goals</td>
+        </tr>
 
     
-    <h4 class="name" id="fetchYearGoals"><span class="type-signature"></span>fetchYearGoals<span class="signature">()</span><span class="type-signature"></span></h4>
-    
+
+        <tr>
+            
+                <td class="name"><code>listId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the id of the list to append the goals to</td>
+        </tr>
 
     
 
+        <tr>
+            
+                <td class="name"><code>newClass</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
 
 
-<div class="description">
-    Gets the current year object (and creates one if one doesn't exist)
-also renders the yearly goals
-</div>
+            
+            </td>
 
+            
 
+            
 
+            <td class="description last">the class that the goal will identify with
+(monthly or yearly class)</td>
+        </tr>
 
-
-
-
+    
+    </tbody>
+</table>
 
 
 
@@ -2704,7 +3291,7 @@ also renders the yearly goals
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="DailyOverview_DailyJS.js.html">DailyOverview/DailyJS.js</a>, <a href="DailyOverview_DailyJS.js.html#line140">line 140</a>
+        <a href="DailyOverview_Daily.js.html">DailyOverview/Daily.js</a>, <a href="DailyOverview_Daily.js.html#line313">line 313</a>
     </li></ul></dd>
     
 
@@ -2758,7 +3345,7 @@ also renders the yearly goals
 
 
 <div class="description">
-    first day-of-the-week (Sunday 0, Saturday 6) helper function
+    First day-of-the-week (Sunday 0, Saturday 6) helper function
 </div>
 
 
@@ -2800,7 +3387,7 @@ also renders the yearly goals
             <td class="type">
             
                 
-<span class="param-type">*</span>
+<span class="param-type">String</span>
 
 
             
@@ -2810,7 +3397,8 @@ also renders the yearly goals
 
             
 
-            <td class="description last"></td>
+            <td class="description last">0-indexed month for which we need to get the first
+day of the week</td>
         </tr>
 
     
@@ -2823,7 +3411,7 @@ also renders the yearly goals
             <td class="type">
             
                 
-<span class="param-type">*</span>
+<span class="param-type">String</span>
 
 
             
@@ -2833,7 +3421,8 @@ also renders the yearly goals
 
             
 
-            <td class="description last"></td>
+            <td class="description last">year for which we need to get the first day of the
+month</td>
         </tr>
 
     
@@ -2874,7 +3463,7 @@ also renders the yearly goals
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Index_Calendar.js.html">Index/Calendar.js</a>, <a href="Index_Calendar.js.html#line220">line 220</a>
+        <a href="Calendar_Calendar.js.html">Calendar/Calendar.js</a>, <a href="Calendar_Calendar.js.html#line134">line 134</a>
     </li></ul></dd>
     
 
@@ -2903,7 +3492,8 @@ also renders the yearly goals
 
         
 <div class="param-desc">
-    the day of the week of the first day in this month (Sunday 0, Saturday 6)
+    the day of the week of the first day in this month (Sunday 0,
+Saturday 6)
 </div>
 
 
@@ -2920,7 +3510,7 @@ also renders the yearly goals
     
 
     
-    <h4 class="name" id="firstDow"><span class="type-signature"></span>firstDow<span class="signature">(month, year)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="generalBulletListener"><span class="type-signature"></span>generalBulletListener<span class="signature">(e, callback)</span><span class="type-signature"></span></h4>
     
 
     
@@ -2928,7 +3518,8 @@ also renders the yearly goals
 
 
 <div class="description">
-    first day-of-the-week (Sunday 0, Saturday 6) helper function
+    Generalize bullet event listeners and include a callback to execute when
+a bullet is interacted with
 </div>
 
 
@@ -2964,13 +3555,13 @@ also renders the yearly goals
 
         <tr>
             
-                <td class="name"><code>month</code></td>
+                <td class="name"><code>e</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">*</span>
+<span class="param-type">event</span>
 
 
             
@@ -2980,20 +3571,20 @@ also renders the yearly goals
 
             
 
-            <td class="description last"></td>
+            <td class="description last">DOM event</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>year</code></td>
+                <td class="name"><code>callback</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">*</span>
+<span class="param-type">function</span>
 
 
             
@@ -3003,7 +3594,8 @@ also renders the yearly goals
 
             
 
-            <td class="description last"></td>
+            <td class="description last">function to call on bullet interaction (ie this
+callback is dependent on the type of trigger event - delete, submit, etc.)</td>
         </tr>
 
     
@@ -3044,7 +3636,7 @@ also renders the yearly goals
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="MonthlyOverview_MonthlyJS.js.html">MonthlyOverview/MonthlyJS.js</a>, <a href="MonthlyOverview_MonthlyJS.js.html#line265">line 265</a>
+        <a href="DailyOverview_Daily.js.html">DailyOverview/Daily.js</a>, <a href="DailyOverview_Daily.js.html#line345">line 345</a>
     </li></ul></dd>
     
 
@@ -3073,7 +3665,7 @@ also renders the yearly goals
 
         
 <div class="param-desc">
-    the day of the week of the first day in this month (Sunday 0, Saturday 6)
+    void
 </div>
 
 
@@ -3090,7 +3682,7 @@ also renders the yearly goals
     
 
     
-    <h4 class="name" id="getDay"><span class="type-signature"></span>getDay<span class="signature">(dateStr)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="generalOp"><span class="type-signature"></span>generalOp<span class="signature">(list, func, &hellip;funcArgs)</span><span class="type-signature"></span></h4>
     
 
     
@@ -3098,7 +3690,925 @@ also renders the yearly goals
 
 
 <div class="description">
-    given a string date key, will return the correct date object
+    Call any arbitrary function on a list with an arbitrary number of
+arguments
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>list</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Any list object</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>func</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">function to call on list with funcArgs</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>funcArgs</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">any</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                    &lt;repeatable><br>
+                
+                </td>
+            
+
+            
+
+            <td class="description last">arguments for func</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="DailyOverview_Daily.js.html">DailyOverview/Daily.js</a>, <a href="DailyOverview_Daily.js.html#line371">line 371</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    void
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getBannerImage"><span class="type-signature">(async) </span>getBannerImage<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Get user banner image
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line200">line 200</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    default OR base64 URL of banner image if user uploads one
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getBase64"><span class="type-signature"></span>getBase64<span class="signature">(file)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    compute base64 encoding for file (file must be an image)
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>file</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">File</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">a file that contains an image which must be encoded
+                     into base64 format</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line213">line 213</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Promise that resolves to the images base64 encoding
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getBulletList"><span class="type-signature"></span>getBulletList<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    return a bullet list or a child list of a bullet list depending on how many
+arguments are passed in.
+
+NOTE: arguments must be numbers representing the indexes of which list you
+would like to access at each level (eg passing in 0,0,0 will grab the first
+bullets list, then the first bullet in its child list, then will return the
+childList of the childList's first bullet)
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="DailyOverview_Daily.js.html">DailyOverview/Daily.js</a>, <a href="DailyOverview_Daily.js.html#line385">line 385</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    array
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getCurrentDate"><span class="type-signature"></span>getCurrentDate<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    get current date in the form of an object
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line229">line 229</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Object with string keys day, month, and year
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getCurrentWeek"><span class="type-signature"></span>getCurrentWeek<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    compute current week strings based on current day. first day of the week
+will be Sunday and last day of the week will be Saturday
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line245">line 245</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Array of string keys in the format of 'mm/dd/yyyy'
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getDataAtDBPath"><span class="type-signature">(async) </span>getDataAtDBPath<span class="signature">(path)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    get data from db
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">path to key you would like to retrieve eg:
+                       "${currentUserID}/2022/02/05"</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line271">line 271</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Object containing requested data at path from firebase db.
+         undefined if the path does not exist in the db
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getDay"><span class="type-signature">(async) </span>getDay<span class="signature">(dateStr)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    get db object from day
 </div>
 
 
@@ -3191,7 +4701,7 @@ also renders the yearly goals
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line222">line 222</a>
+        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line299">line 299</a>
     </li></ul></dd>
     
 
@@ -3220,7 +4730,8 @@ also renders the yearly goals
 
         
 <div class="param-desc">
-    A request for a date, if no day with the given dateStr exists, returns undefined
+    Object A request for a date, if no day with the given dateStr exists,
+ returns undefined.
 </div>
 
 
@@ -3245,8 +4756,9 @@ also renders the yearly goals
 
 
 <div class="description">
-    Takes in the dimensions of the canvas and the new image, then calculates the new
-dimensions of the image so that it fits perfectly into the Canvas and maintains aspect ratio
+    Takes in the dimensions of the CANVAS and the new image, then calculates the
+new dimensions of the image so that it fits perfectly into the Canvas and
+maintains aspect ratio
 </div>
 
 
@@ -3298,7 +4810,7 @@ dimensions of the image so that it fits perfectly into the Canvas and maintains 
 
             
 
-            <td class="description last">Width of the canvas element to insert image into</td>
+            <td class="description last">Width of the CANVAS element to insert image into</td>
         </tr>
 
     
@@ -3321,7 +4833,8 @@ dimensions of the image so that it fits perfectly into the Canvas and maintains 
 
             
 
-            <td class="description last">Height of the canvas element to insert image into</td>
+            <td class="description last">Height of the CANVAS element to insert image
+into</td>
         </tr>
 
     
@@ -3408,7 +4921,7 @@ dimensions of the image so that it fits perfectly into the Canvas and maintains 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="DailyOverview_DailyJS.js.html">DailyOverview/DailyJS.js</a>, <a href="DailyOverview_DailyJS.js.html#line489">line 489</a>
+        <a href="DailyOverview_Daily.js.html">DailyOverview/Daily.js</a>, <a href="DailyOverview_Daily.js.html#line412">line 412</a>
     </li></ul></dd>
     
 
@@ -3437,9 +4950,10 @@ dimensions of the image so that it fits perfectly into the Canvas and maintains 
 
         
 <div class="param-desc">
-    An object containing four properties: The newly calculated width and height,
-and also the starting X and starting Y coordinate to be used when you draw the new image to the
-Canvas. These coordinates align with the top left of the image.
+    An object containing four properties: The newly calculated
+width and height, and also the starting X and starting Y coordinate to be
+used when you draw the new image to the Canvas. These coordinates align with
+the top left of the image.
 </div>
 
 
@@ -3468,7 +4982,7 @@ Canvas. These coordinates align with the top left of the image.
     
 
     
-    <h4 class="name" id="getLoginState"><span class="type-signature"></span>getLoginState<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="getMonthlyGoals"><span class="type-signature">(async) </span>getMonthlyGoals<span class="signature">(monthStr)</span><span class="type-signature"></span></h4>
     
 
     
@@ -3476,185 +4990,7 @@ Canvas. These coordinates align with the top left of the image.
 
 
 <div class="description">
-    Connects to the database, and sees if
-the user is new or returning
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Login_LoginJS.js.html">Login/LoginJS.js</a>, <a href="Login_LoginJS.js.html#line54">line 54</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="getMockData"><span class="type-signature"></span>getMockData<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    sample function to get the mock data from the database
-IS NOW DEPRECATED
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line162">line 162</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="getMonthlyGoals"><span class="type-signature"></span>getMonthlyGoals<span class="signature">(monthStr)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    gets a monthlyGoal object given the input month string
+    get db object for a month's goals
 </div>
 
 
@@ -3706,7 +5042,8 @@ IS NOW DEPRECATED
 
             
 
-            <td class="description last">month along with year in the form "xx/xxxx" (eg: "02/2022")</td>
+            <td class="description last">month along with year in the form "xx/xxxx"
+ (eg: "02/2022")</td>
         </tr>
 
     
@@ -3747,7 +5084,7 @@ IS NOW DEPRECATED
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line369">line 369</a>
+        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line339">line 339</a>
     </li></ul></dd>
     
 
@@ -3776,7 +5113,8 @@ IS NOW DEPRECATED
 
         
 <div class="param-desc">
-    a request for a monthlyGoals object if none with the monthStr exist, returns undefined
+    a request for a monthlyGoals object. if none with the monthStr
+ exist, returns undefined
 </div>
 
 
@@ -3793,7 +5131,7 @@ IS NOW DEPRECATED
     
 
     
-    <h4 class="name" id="getSettings"><span class="type-signature"></span>getSettings<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="getMonthName"><span class="type-signature"></span>getMonthName<span class="signature">(monthNumber)</span><span class="type-signature"></span></h4>
     
 
     
@@ -3801,8 +5139,304 @@ IS NOW DEPRECATED
 
 
 <div class="description">
-    gets the current settings for the user
-NOTE: Since there is only 1 user, there is only 1 setting object
+    get the name associated with a month's number (eg '05' => 'May')
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>monthNumber</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">a month number in the form of '0x' (eg 05) or
+'1x' (eg 12)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line313">line 313</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    name of the corresponding month
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getMonthObj"><span class="type-signature">(async) </span>getMonthObj<span class="signature">(monthStr)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    get db object for an entire month object
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>monthStr</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">month along with year in the form "xx/xxxx"
+ (eg: "02/2022")</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line324">line 324</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    a request for a month object. if none with the monthStr
+ exist, returns undefined
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getProfileImage"><span class="type-signature">(async) </span>getProfileImage<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Get user profile image
 </div>
 
 
@@ -3846,7 +5480,7 @@ NOTE: Since there is only 1 user, there is only 1 setting object
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line440">line 440</a>
+        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line351">line 351</a>
     </li></ul></dd>
     
 
@@ -3875,7 +5509,7 @@ NOTE: Since there is only 1 user, there is only 1 setting object
 
         
 <div class="param-desc">
-    a request for a settings object
+    default OR base64 URL of profile image if user uploads one
 </div>
 
 
@@ -3892,7 +5526,7 @@ NOTE: Since there is only 1 user, there is only 1 setting object
     
 
     
-    <h4 class="name" id="getYearlyGoals"><span class="type-signature"></span>getYearlyGoals<span class="signature">(yearStr)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="getTheme"><span class="type-signature">(async) </span>getTheme<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
@@ -3900,7 +5534,204 @@ NOTE: Since there is only 1 user, there is only 1 setting object
 
 
 <div class="description">
-    given a year string, gets the set of yearly goals in that year
+    Get user theme preference
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line362">line 362</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    user theme preference
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getUserID"><span class="type-signature">(async) </span>getUserID<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    get current user's id
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line374">line 374</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    user id. null if no user is signed in or the
+user is not signed in (i.e bypassing the authentication).
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getYearlyGoals"><span class="type-signature">(async) </span>getYearlyGoals<span class="signature">(yearStr)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    get db object for year
 </div>
 
 
@@ -3993,7 +5824,7 @@ NOTE: Since there is only 1 user, there is only 1 setting object
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line298">line 298</a>
+        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line392">line 392</a>
     </li></ul></dd>
     
 
@@ -4022,7 +5853,8 @@ NOTE: Since there is only 1 user, there is only 1 setting object
 
         
 <div class="param-desc">
-    A request for the year object, if none exist with the yearStr, returns undefined
+    A request for the year object, if none exist with the yearStr,
+ returns undefined
 </div>
 
 
@@ -4039,7 +5871,7 @@ NOTE: Since there is only 1 user, there is only 1 setting object
     
 
     
-    <h4 class="name" id="goHome"><span class="type-signature"></span>goHome<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="goalListenerRemoval"><span class="type-signature"></span>goalListenerRemoval<span class="signature">(goalDivId, addHeaderId)</span><span class="type-signature"></span></h4>
     
 
     
@@ -4047,7 +5879,380 @@ NOTE: Since there is only 1 user, there is only 1 setting object
 
 
 <div class="description">
-    Redirect the browser to the Index page with a href
+    Remove the event listeners that were previously added by goalListenerSetup
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>goalDivId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The id of the div that contains the goals for
+which event listener we want to remove</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>addHeaderId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The id of the corresponding plus button of the
+goal mentioned above</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Calendar_Calendar.js.html">Calendar/Calendar.js</a>, <a href="Calendar_Calendar.js.html#line145">line 145</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="goalListenerSetup"><span class="type-signature"></span>goalListenerSetup<span class="signature">(goalObj, goalDivId, addHeaderId, callback)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Set up all event listeners for monthly/yearly goals panel (add, edit, delete,
+mark goals as complete)
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>goalObj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The goal object that we need to update</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>goalDivId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The id of the div that contains the goals for
+which event listener we want to setup</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>addHeaderId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The id of the corresponding plus button of the
+goal mentioned above</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">This callback strictly updates the backend for
+the monthly and yearly goals</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Calendar_Calendar.js.html">Calendar/Calendar.js</a>, <a href="Calendar_Calendar.js.html#line166">line 166</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="googleSignIn"><span class="type-signature"></span>googleSignIn<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Sign in with the Google.
+Authentication persistence is Session based.
 </div>
 
 
@@ -4091,7 +6296,7 @@ NOTE: Since there is only 1 user, there is only 1 setting object
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Login_LoginJS.js.html">Login/LoginJS.js</a>, <a href="Login_LoginJS.js.html#line126">line 126</a>
+        <a href="Login_Login.js.html">Login/Login.js</a>, <a href="Login_Login.js.html#line37">line 37</a>
     </li></ul></dd>
     
 
@@ -4127,7 +6332,7 @@ NOTE: Since there is only 1 user, there is only 1 setting object
     
 
     
-    <h4 class="name" id="handleLogin"><span class="type-signature"></span>handleLogin<span class="signature">(password)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="isValidEmail"><span class="type-signature"></span>isValidEmail<span class="signature">(userEmail)</span><span class="type-signature"></span></h4>
     
 
     
@@ -4135,9 +6340,156 @@ NOTE: Since there is only 1 user, there is only 1 setting object
 
 
 <div class="description">
-    Handles Login request. Checks if password hash is correct, and if so, goes to index
-(Password is "dinosaurs12")
-Begins to handle the Login request. Checks sends the password hash to be verified.
+    Check if input string is an email
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>userEmail</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line404">line 404</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    true if email is valid
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="isValidPassword"><span class="type-signature"></span>isValidPassword<span class="signature">(password)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Check if password contains at least eight characters, an upper
+case, a number, and a special character. Raise an alert if any
+of the case is not satisfied.
 </div>
 
 
@@ -4189,1185 +6541,6 @@ Begins to handle the Login request. Checks sends the password hash to be verifie
 
             
 
-            <td class="description last">: PIN to be verified</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Login_LoginJS.js.html">Login/LoginJS.js</a>, <a href="Login_LoginJS.js.html#line108">line 108</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="handleSignup"><span class="type-signature"></span>handleSignup<span class="signature">(newUsername, newPassword)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Handle a Sign-Up request from a new user
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>newUsername</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">*</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Display name of new user</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>newPassword</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">*</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">PIN of new user</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Login_LoginJS.js.html">Login/LoginJS.js</a>, <a href="Login_LoginJS.js.html#line84">line 84</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="initDay"><span class="type-signature"></span>initDay<span class="signature">(dateStr)</span><span class="type-signature"> &rarr; {Object}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    creates a new day object given a date string
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>dateStr</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">a string of the goal</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line540">line 540</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    dateObj - the new day object
-Look into createDay() to see what a date object consists of
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Object</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="initDB"><span class="type-signature"></span>initDB<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Function checks to see if this visotor has a databse set up
-if it doesn't, then cretaes the stores and indicies
-NOTE: It is up to the CALLER to call "setDB" with the returned database object before making
-any transactions
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line31">line 31</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    a request for a db object
-</div>
-
-
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="initGoal"><span class="type-signature"></span>initGoal<span class="signature">(goalStr)</span><span class="type-signature"> &rarr; {Object|String|boolean}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    creates a new goal object given a goal string
-new goals area always initalized as not done
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>goalStr</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">a string of the goal</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line552">line 552</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-<ul>
-        <li>
-<div class="param-desc">
-    goal - the new goal object
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Object</span>
-
-
-    </dd>
-</dl>
-</li>
-    
-        <li>
-<div class="param-desc">
-    goal.text - the string of what the text is
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">String</span>
-
-
-    </dd>
-</dl>
-</li>
-    
-        <li>
-<div class="param-desc">
-    goal.done - is the goal is done or not
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">boolean</span>
-
-
-    </dd>
-</dl>
-</li>
-    </ul>
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="initMonth"><span class="type-signature"></span>initMonth<span class="signature">(monthStr)</span><span class="type-signature"> &rarr; {Object|String|Object}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    creates a new month object given a month string
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>monthStr</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">a string repr of the month (this also includes the year)</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line530">line 530</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-<ul>
-        <li>
-<div class="param-desc">
-    monthObj - the new monthly goal obj
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Object</span>
-
-
-    </dd>
-</dl>
-</li>
-    
-        <li>
-<div class="param-desc">
-    monthObj.year - string of the month (which is of the form "xx/xxxx" eg: "02/2021")
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">String</span>
-
-
-    </dd>
-</dl>
-</li>
-    
-        <li>
-<div class="param-desc">
-    monthObj.goals- an array (initally empty) of goal objects
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Object</span>
-
-
-    </dd>
-</dl>
-</li>
-    </ul>
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="initYear"><span class="type-signature"></span>initYear<span class="signature">(yearStr)</span><span class="type-signature"> &rarr; {Object|String|Object}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    creates a new year object given a year string
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>yearStr</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">the year (eg: "2020")</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line519">line 519</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-<ul>
-        <li>
-<div class="param-desc">
-    yearObj - the new year object
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Object</span>
-
-
-    </dd>
-</dl>
-</li>
-    
-        <li>
-<div class="param-desc">
-    yearObj.year - string of the year
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">String</span>
-
-
-    </dd>
-</dl>
-</li>
-    
-        <li>
-<div class="param-desc">
-    yearObj.goals- an array (initally empty) of goal objects
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Object</span>
-
-
-    </dd>
-</dl>
-</li>
-    </ul>
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="lastDow"><span class="type-signature"></span>lastDow<span class="signature">(month, year)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    last day-of-the-week (Sunday 0, Saturday 6) helper function
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>month</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">*</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>year</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">*</span>
-
-
-            
-            </td>
-
-            
-
-            
-
             <td class="description last"></td>
         </tr>
 
@@ -5409,7 +6582,7 @@ new goals area always initalized as not done
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Index_Calendar.js.html">Index/Calendar.js</a>, <a href="Index_Calendar.js.html#line230">line 230</a>
+        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line419">line 419</a>
     </li></ul></dd>
     
 
@@ -5438,7 +6611,8 @@ new goals area always initalized as not done
 
         
 <div class="param-desc">
-    the day of the week of the last day in this month (Sunday 0, Saturday 6)
+    empty string if all conditions are satisfied. Otherwise
+error message.
 </div>
 
 
@@ -5505,7 +6679,7 @@ new goals area always initalized as not done
             <td class="type">
             
                 
-<span class="param-type">*</span>
+<span class="param-type">String</span>
 
 
             
@@ -5515,7 +6689,8 @@ new goals area always initalized as not done
 
             
 
-            <td class="description last"></td>
+            <td class="description last">0-indexed month for which we need to get the last
+day of the week</td>
         </tr>
 
     
@@ -5528,7 +6703,7 @@ new goals area always initalized as not done
             <td class="type">
             
                 
-<span class="param-type">*</span>
+<span class="param-type">String</span>
 
 
             
@@ -5538,7 +6713,8 @@ new goals area always initalized as not done
 
             
 
-            <td class="description last"></td>
+            <td class="description last">year for which we need to get the last day of the
+month</td>
         </tr>
 
     
@@ -5579,7 +6755,7 @@ new goals area always initalized as not done
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="MonthlyOverview_MonthlyJS.js.html">MonthlyOverview/MonthlyJS.js</a>, <a href="MonthlyOverview_MonthlyJS.js.html#line275">line 275</a>
+        <a href="Calendar_Calendar.js.html">Calendar/Calendar.js</a>, <a href="Calendar_Calendar.js.html#line256">line 256</a>
     </li></ul></dd>
     
 
@@ -5608,12 +6784,946 @@ new goals area always initalized as not done
 
         
 <div class="param-desc">
-    the day of the week of the last day in this month (Sunday 0, Saturday 6)
+    the day of the week of the last day in this month (Sunday 0,
+Saturday 6)
 </div>
 
 
 
     
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="loadBannerImage"><span class="type-signature">(async) </span>loadBannerImage<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Load user customized banner image
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="WeeklyOverview_Weekly.js.html">WeeklyOverview/Weekly.js</a>, <a href="WeeklyOverview_Weekly.js.html#line223">line 223</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="loadGoalReminders"><span class="type-signature">(async) </span>loadGoalReminders<span class="signature">(currDateObj)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    load monthly and yearly goals for current month and yearly from db into goal
+reminder panel
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>currDateObj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Object with string keys day, month, and year</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="WeeklyOverview_Weekly.js.html">WeeklyOverview/Weekly.js</a>, <a href="WeeklyOverview_Weekly.js.html#line245">line 245</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    void
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="loadNotes"><span class="type-signature">(async) </span>loadNotes<span class="signature">(currDateObj)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    load notes for current day from db into notes panel
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>currDateObj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Object with string keys day, month, and year</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="WeeklyOverview_Weekly.js.html">WeeklyOverview/Weekly.js</a>, <a href="WeeklyOverview_Weekly.js.html#line259">line 259</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    void
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="loadProfileImage"><span class="type-signature">(async) </span>loadProfileImage<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Load user customized profile picture
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="WeeklyOverview_Weekly.js.html">WeeklyOverview/Weekly.js</a>, <a href="WeeklyOverview_Weekly.js.html#line278">line 278</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="loadTheme"><span class="type-signature">(async) </span>loadTheme<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Set user theme with their preference
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Calendar_Calendar.js.html">Calendar/Calendar.js</a>, <a href="Calendar_Calendar.js.html#line263">line 263</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="loadTheme"><span class="type-signature">(async) </span>loadTheme<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Load the user's theme that is stored in the db and set the main page's
+background color to this theme
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="DailyOverview_Daily.js.html">DailyOverview/Daily.js</a>, <a href="DailyOverview_Daily.js.html#line447">line 447</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    void
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="loadTheme"><span class="type-signature">(async) </span>loadTheme<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Set various background properties around weekly page to the user's selected
+theme in the backend
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="WeeklyOverview_Weekly.js.html">WeeklyOverview/Weekly.js</a>, <a href="WeeklyOverview_Weekly.js.html#line297">line 297</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="loadWeek"><span class="type-signature">(async) </span>loadWeek<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Loads the current week (7 days worth of data) into the weekly preview
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="WeeklyOverview_Weekly.js.html">WeeklyOverview/Weekly.js</a>, <a href="WeeklyOverview_Weekly.js.html#line314">line 314</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    void
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="loginSignUpSetup"><span class="type-signature"></span>loginSignUpSetup<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Set up event listeners for various login/signup buttons
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Login_Login.js.html">Login/Login.js</a>, <a href="Login_Login.js.html#line88">line 88</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5726,7 +7836,7 @@ new goals area always initalized as not done
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Index_Calendar.js.html">Index/Calendar.js</a>, <a href="Index_Calendar.js.html#line239">line 239</a>
+        <a href="Calendar_Calendar.js.html">Calendar/Calendar.js</a>, <a href="Calendar_Calendar.js.html#line312">line 312</a>
     </li></ul></dd>
     
 
@@ -5772,7 +7882,7 @@ new goals area always initalized as not done
     
 
     
-    <h4 class="name" id="monthNumber"><span class="type-signature"></span>monthNumber<span class="signature">(month)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="populateGoalList"><span class="type-signature"></span>populateGoalList<span class="signature">(goalDivId, goalsObj)</span><span class="type-signature"></span></h4>
     
 
     
@@ -5780,7 +7890,8 @@ new goals area always initalized as not done
 
 
 <div class="description">
-    Formats the month number
+    populate a newly created unordered list by iterating through goals object.
+This is list is then stored under the HTML element with id goalDivId
 </div>
 
 
@@ -5816,13 +7927,13 @@ new goals area always initalized as not done
 
         <tr>
             
-                <td class="name"><code>month</code></td>
+                <td class="name"><code>goalDivId</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">*</span>
+<span class="param-type">String</span>
 
 
             
@@ -5832,139 +7943,14 @@ new goals area always initalized as not done
 
             
 
-            <td class="description last">zero-indexed month integer, like 1 for February</td>
+            <td class="description last">the HTML div id of the goals section</td>
         </tr>
 
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="MonthlyOverview_MonthlyJS.js.html">MonthlyOverview/MonthlyJS.js</a>, <a href="MonthlyOverview_MonthlyJS.js.html#line286">line 286</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    a month number string like "02" for February
-</div>
-
-
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="renderBullets"><span class="type-signature"></span>renderBullets<span class="signature">(bullets)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Function that renders a list of bullets into the todo area
-Update currentDay json with updated bullets
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
     
 
         <tr>
             
-                <td class="name"><code>bullets</code></td>
+                <td class="name"><code>goalsObj</code></td>
             
 
             <td class="type">
@@ -5980,7 +7966,8 @@ Update currentDay json with updated bullets
 
             
 
-            <td class="description last">a list of bullet objects to render</td>
+            <td class="description last">the object we need to parse through and append to a
+                     newly created unordered list</td>
         </tr>
 
     
@@ -6021,7 +8008,7 @@ Update currentDay json with updated bullets
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="DailyOverview_DailyJS.js.html">DailyOverview/DailyJS.js</a>, <a href="DailyOverview_DailyJS.js.html#line321">line 321</a>
+        <a href="WeeklyOverview_Weekly.js.html">WeeklyOverview/Weekly.js</a>, <a href="WeeklyOverview_Weekly.js.html#line380">line 380</a>
     </li></ul></dd>
     
 
@@ -6046,6 +8033,16 @@ Update currentDay json with updated bullets
 
 
 
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    void
+</div>
+
+
+
+    
 
 
 
@@ -6057,7 +8054,7 @@ Update currentDay json with updated bullets
     
 
     
-    <h4 class="name" id="renderChild"><span class="type-signature"></span>renderChild<span class="signature">(bullet, i)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="processBullet"><span class="type-signature"></span>processBullet<span class="signature">(bullet, i)</span><span class="type-signature"> &rarr; {Object}</span></h4>
     
 
     
@@ -6181,7 +8178,7 @@ Update currentDay json with updated bullets
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="DailyOverview_DailyJS.js.html">DailyOverview/DailyJS.js</a>, <a href="DailyOverview_DailyJS.js.html#line350">line 350</a>
+        <a href="DailyOverview_Daily.js.html">DailyOverview/Daily.js</a>, <a href="DailyOverview_Daily.js.html#line472">line 472</a>
     </li></ul></dd>
     
 
@@ -6239,7 +8236,7 @@ Update currentDay json with updated bullets
     
 
     
-    <h4 class="name" id="renderGoals"><span class="type-signature"></span>renderGoals<span class="signature">(a)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="processCurrentImage"><span class="type-signature"></span>processCurrentImage<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
@@ -6247,7 +8244,8 @@ Update currentDay json with updated bullets
 
 
 <div class="description">
-    Function that renders a list of goals into the todo area
+    Render the image at our current relative index and draw it on the CANVAS
+(photo album area)
 </div>
 
 
@@ -6256,55 +8254,6 @@ Update currentDay json with updated bullets
 
 
 
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>a</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">list of goal objects</td>
-        </tr>
-
-    
-    </tbody>
-</table>
 
 
 
@@ -6340,7 +8289,106 @@ Update currentDay json with updated bullets
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="MonthlyOverview_MonthlyJS.js.html">MonthlyOverview/MonthlyJS.js</a>, <a href="MonthlyOverview_MonthlyJS.js.html#line106">line 106</a>
+        <a href="DailyOverview_Daily.js.html">DailyOverview/Daily.js</a>, <a href="DailyOverview_Daily.js.html#line495">line 495</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    void
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="removeGoalListeners"><span class="type-signature"></span>removeGoalListeners<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Remove goal listeners for monthly and yearly goal panel that were setup by
+addGoalListeners()
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Calendar_Calendar.js.html">Calendar/Calendar.js</a>, <a href="Calendar_Calendar.js.html#line324">line 324</a>
     </li></ul></dd>
     
 
@@ -6376,7 +8424,7 @@ Update currentDay json with updated bullets
     
 
     
-    <h4 class="name" id="renderGoals"><span class="type-signature"></span>renderGoals<span class="signature">(a)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="renderBullets"><span class="type-signature"></span>renderBullets<span class="signature">(bullets)</span><span class="type-signature"></span></h4>
     
 
     
@@ -6384,7 +8432,8 @@ Update currentDay json with updated bullets
 
 
 <div class="description">
-    Function that renders a list of goals into the todo area
+    Function that renders a list of bullets into the todo area
+Update currentDay json with updated bullets
 </div>
 
 
@@ -6420,7 +8469,7 @@ Update currentDay json with updated bullets
 
         <tr>
             
-                <td class="name"><code>a</code></td>
+                <td class="name"><code>bullets</code></td>
             
 
             <td class="type">
@@ -6436,7 +8485,7 @@ Update currentDay json with updated bullets
 
             
 
-            <td class="description last">list of goal objects</td>
+            <td class="description last">a list of bullet objects to render</td>
         </tr>
 
     
@@ -6477,7 +8526,179 @@ Update currentDay json with updated bullets
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="YearlyOverview_YearlyJS.js.html">YearlyOverview/YearlyJS.js</a>, <a href="YearlyOverview_YearlyJS.js.html#line108">line 108</a>
+        <a href="DailyOverview_Daily.js.html">DailyOverview/Daily.js</a>, <a href="DailyOverview_Daily.js.html#line522">line 522</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    void
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="renderGoals"><span class="type-signature"></span>renderGoals<span class="signature">(goalsList, goalsDivId)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Create goal-entry objects for each goal in the passed-in list and add it to
+the DOM at passed-in div id
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>goalsList</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The list of goal objects we need to render</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>goalsDivId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The id of the div at which we need to append
+the list of goals</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Calendar_Calendar.js.html">Calendar/Calendar.js</a>, <a href="Calendar_Calendar.js.html#line336">line 336</a>
     </li></ul></dd>
     
 
@@ -6614,7 +8835,7 @@ Update currentDay json with updated bullets
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="DailyOverview_DailyJS.js.html">DailyOverview/DailyJS.js</a>, <a href="DailyOverview_DailyJS.js.html#line524">line 524</a>
+        <a href="DailyOverview_Daily.js.html">DailyOverview/Daily.js</a>, <a href="DailyOverview_Daily.js.html#line541">line 541</a>
     </li></ul></dd>
     
 
@@ -6660,7 +8881,7 @@ Update currentDay json with updated bullets
     
 
     
-    <h4 class="name" id="requestDay"><span class="type-signature"></span>requestDay<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="requestDay"><span class="type-signature">(async) </span>requestDay<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
@@ -6714,7 +8935,7 @@ Also renders the days notes and bullets if there are any
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="DailyOverview_DailyJS.js.html">DailyOverview/DailyJS.js</a>, <a href="DailyOverview_DailyJS.js.html#line70">line 70</a>
+        <a href="DailyOverview_Daily.js.html">DailyOverview/Daily.js</a>, <a href="DailyOverview_Daily.js.html#line555">line 555</a>
     </li></ul></dd>
     
 
@@ -6760,7 +8981,7 @@ Also renders the days notes and bullets if there are any
     
 
     
-    <h4 class="name" id="setDB"><span class="type-signature"></span>setDB<span class="signature">(dbReturn)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="setBulletFeature"><span class="type-signature"></span>setBulletFeature<span class="signature">(obj, newFeature)</span><span class="type-signature"></span></h4>
     
 
     
@@ -6768,7 +8989,7 @@ Also renders the days notes and bullets if there are any
 
 
 <div class="description">
-    used to set the database object to make future transactions with
+    set feature for bullet
 </div>
 
 
@@ -6804,13 +9025,13 @@ Also renders the days notes and bullets if there are any
 
         <tr>
             
-                <td class="name"><code>dbReturn</code></td>
+                <td class="name"><code>obj</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type">bullet</span>
 
 
             
@@ -6820,7 +9041,30 @@ Also renders the days notes and bullets if there are any
 
             
 
-            <td class="description last"></td>
+            <td class="description last">a bullet object that has a feature field</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>newFeature</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">new feature to assign to bullet</td>
         </tr>
 
     
@@ -6861,345 +9105,7 @@ Also renders the days notes and bullets if there are any
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line112">line 112</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="setNewUser"><span class="type-signature"></span>setNewUser<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Change the login screen to the "New User" mode
-Hide username, update text.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Login_LoginJS.js.html">Login/LoginJS.js</a>, <a href="Login_LoginJS.js.html#line134">line 134</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="setReturningUser"><span class="type-signature"></span>setReturningUser<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Change the login screen to the "Returning User" mode
-Show username, update text
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Login_LoginJS.js.html">Login/LoginJS.js</a>, <a href="Login_LoginJS.js.html#line145">line 145</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="setSelected"><span class="type-signature"></span>setSelected<span class="signature">(select, val)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Sets the theme dropdown index choice as selected based on input value
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>select</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">the select object</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>val</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">the value of the option to select</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Index_IndexJS.js.html">Index/IndexJS.js</a>, <a href="Index_IndexJS.js.html#line37">line 37</a>
+        <a href="DailyOverview_Daily.js.html">DailyOverview/Daily.js</a>, <a href="DailyOverview_Daily.js.html#line587">line 587</a>
     </li></ul></dd>
     
 
@@ -7245,7 +9151,7 @@ Show username, update text
     
 
     
-    <h4 class="name" id="setupCalendar"><span class="type-signature"></span>setupCalendar<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="setBulletText"><span class="type-signature"></span>setBulletText<span class="signature">(obj, newText)</span><span class="type-signature"></span></h4>
     
 
     
@@ -7253,7 +9159,177 @@ Show username, update text
 
 
 <div class="description">
-    dynamically generates calendar for current month
+    set text for bullet
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>obj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">bullet</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">a bullet object that has a text field</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>newText</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">new text to assign to bullet</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="DailyOverview_Daily.js.html">DailyOverview/Daily.js</a>, <a href="DailyOverview_Daily.js.html#line597">line 597</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    void
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="setLogin"><span class="type-signature"></span>setLogin<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Modify login page to login mode
 </div>
 
 
@@ -7297,7 +9373,7 @@ Show username, update text
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="MonthlyOverview_MonthlyJS.js.html">MonthlyOverview/MonthlyJS.js</a>, <a href="MonthlyOverview_MonthlyJS.js.html#line145">line 145</a>
+        <a href="Login_Login.js.html">Login/Login.js</a>, <a href="Login_Login.js.html#line129">line 129</a>
     </li></ul></dd>
     
 
@@ -7333,7 +9409,7 @@ Show username, update text
     
 
     
-    <h4 class="name" id="setUpMockData"><span class="type-signature"></span>setUpMockData<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="setSignUp"><span class="type-signature"></span>setSignUp<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
@@ -7341,8 +9417,7 @@ Show username, update text
 
 
 <div class="description">
-    Is called to populate the databse with mockData when one doesn't exist
-IS NOW DEPRECATED
+    Modify login page from login mode to signup mode
 </div>
 
 
@@ -7386,7 +9461,878 @@ IS NOW DEPRECATED
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line122">line 122</a>
+        <a href="Login_Login.js.html">Login/Login.js</a>, <a href="Login_Login.js.html#line148">line 148</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="setupCalendar"><span class="type-signature">(async) </span>setupCalendar<span class="signature">(dateStr)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Dynamically generate calendar for current month
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>dateStr</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The date that we need to render the calendar for</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Calendar_Calendar.js.html">Calendar/Calendar.js</a>, <a href="Calendar_Calendar.js.html#line395">line 395</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="signIn"><span class="type-signature"></span>signIn<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Sign in with the email and pin from the user input.
+Authentication persistence is Session based.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Login_Login.js.html">Login/Login.js</a>, <a href="Login_Login.js.html#line168">line 168</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="signUp"><span class="type-signature"></span>signUp<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    New user sign up with email and password given.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Login_Login.js.html">Login/Login.js</a>, <a href="Login_Login.js.html#line197">line 197</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="submitGoal"><span class="type-signature"></span>submitGoal<span class="signature">(goalObj, goalDivId, callback)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Submit goal to db and render it under monthly/yearly goal
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>goalObj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The goal object that we need to update</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>goalDivId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The id of the div that contains the goals for
+which event listener we want to setup</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">This callback strictly updates the backend for
+the monthly and yearly goals</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Calendar_Calendar.js.html">Calendar/Calendar.js</a>, <a href="Calendar_Calendar.js.html#line366">line 366</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="toggleBulletStatus"><span class="type-signature"></span>toggleBulletStatus<span class="signature">(obj)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    toggle bullet done status
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>obj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">bullet</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">a bullet object that has a done field</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="DailyOverview_Daily.js.html">DailyOverview/Daily.js</a>, <a href="DailyOverview_Daily.js.html#line606">line 606</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    void
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="togglePasswordSetup"><span class="type-signature"></span>togglePasswordSetup<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Toggle the eye logo depending on its current state
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Login_Login.js.html">Login/Login.js</a>, <a href="Login_Login.js.html#line250">line 250</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="updateBannerImage"><span class="type-signature">(async) </span>updateBannerImage<span class="signature">(imgStr)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Update user's new banner image in DB
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>imgStr</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Image URL of the banner image</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line458">line 458</a>
     </li></ul></dd>
     
 
@@ -7430,8 +10376,7 @@ IS NOW DEPRECATED
 
 
 <div class="description">
-    takes a given day object and updates it
-the date property must match an entry in the database
+    update db object for day
 </div>
 
 
@@ -7515,7 +10460,7 @@ the date property must match an entry in the database
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">String</span>
 
 
             
@@ -7525,7 +10470,8 @@ the date property must match an entry in the database
 
             
 
-            <td class="description last">date of the form "mm/dd/yyyy/" (ie: "02/28/2021")</td>
+            <td class="description last">date of the form "mm/dd/yyyy/"
+ (ie: "02/28/2021")</td>
         </tr>
 
     
@@ -7584,7 +10530,7 @@ the date property must match an entry in the database
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">String</span>
 
 
             
@@ -7642,7 +10588,7 @@ the date property must match an entry in the database
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line262">line 262</a>
+        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line474">line 474</a>
     </li></ul></dd>
     
 
@@ -7696,8 +10642,7 @@ the date property must match an entry in the database
 
 
 <div class="description">
-    updates a monthlyGoals object in the database  monthObj.month must
-match one existing in the database
+    update db object for month
 </div>
 
 
@@ -7762,7 +10707,7 @@ match one existing in the database
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">String</span>
 
 
             
@@ -7772,7 +10717,8 @@ match one existing in the database
 
             
 
-            <td class="description last">month and year in the form "mm/yyyy" (eg: "12/2020")</td>
+            <td class="description last">month and year in the form "mm/yyyy"
+ (eg: "12/2020")</td>
         </tr>
 
     
@@ -7836,7 +10782,7 @@ match one existing in the database
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line404">line 404</a>
+        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line486">line 486</a>
     </li></ul></dd>
     
 
@@ -7882,7 +10828,265 @@ match one existing in the database
     
 
     
-    <h4 class="name" id="updateNote"><span class="type-signature"></span>updateNote<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="updateNote"><span class="type-signature">(async) </span>updateNote<span class="signature">(dateStr, notes)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Update the notes of year/month/day
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>dateStr</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">of form "mm/dd/yyyy" eg: "02/12/2020"</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>notes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">notes to update</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line495">line 495</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="updateNotes"><span class="type-signature"></span>updateNotes<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    update the current day's note field in the db
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="DailyOverview_Daily.js.html">DailyOverview/Daily.js</a>, <a href="DailyOverview_Daily.js.html#line614">line 614</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    void
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="updateNotes"><span class="type-signature"></span>updateNotes<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
@@ -7934,7 +11138,7 @@ match one existing in the database
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="DailyOverview_DailyJS.js.html">DailyOverview/DailyJS.js</a>, <a href="DailyOverview_DailyJS.js.html#line384">line 384</a>
+        <a href="WeeklyOverview_Weekly.js.html">WeeklyOverview/Weekly.js</a>, <a href="WeeklyOverview_Weekly.js.html#line396">line 396</a>
     </li></ul></dd>
     
 
@@ -7970,7 +11174,7 @@ match one existing in the database
     
 
     
-    <h4 class="name" id="updateSettings"><span class="type-signature"></span>updateSettings<span class="signature">(setting)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="updateObjAtDBPath"><span class="type-signature"></span>updateObjAtDBPath<span class="signature">(path, obj)</span><span class="type-signature"></span></h4>
     
 
     
@@ -7978,7 +11182,7 @@ match one existing in the database
 
 
 <div class="description">
-    updates the custom setting object with new info
+    update db object at path. if no path exists, create object at path
 </div>
 
 
@@ -8014,7 +11218,31 @@ match one existing in the database
 
         <tr>
             
-                <td class="name"><code>setting</code></td>
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">path to key you would like to update eg:
+                       "${currentUserID}/2022/02/05"</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>obj</code></td>
             
 
             <td class="type">
@@ -8030,102 +11258,7 @@ match one existing in the database
 
             
 
-            <td class="description last">
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>username</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">name of the user (ie: "Miranda")</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>password</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">password of the user (ie: "password")</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>theme</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">theme id of the user (ie: 0)</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
+            <td class="description last">object to set in place of existing object at path in db</td>
         </tr>
 
     
@@ -8166,7 +11299,7 @@ match one existing in the database
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line477">line 477</a>
+        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line510">line 510</a>
     </li></ul></dd>
     
 
@@ -8212,7 +11345,7 @@ match one existing in the database
     
 
     
-    <h4 class="name" id="updateYearsGoals"><span class="type-signature"></span>updateYearsGoals<span class="signature">(yearObj)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="updateProfileImage"><span class="type-signature">(async) </span>updateProfileImage<span class="signature">(imgStr)</span><span class="type-signature"></span></h4>
     
 
     
@@ -8220,8 +11353,281 @@ match one existing in the database
 
 
 <div class="description">
-    updates a yearlyGoals already existing in the db
-the year property much match one already existing in the database
+    Update user's new profile image in DB
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>imgStr</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Image URL of the profile image</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line524">line 524</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="updateTheme"><span class="type-signature">(async) </span>updateTheme<span class="signature">(newTheme)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Set new theme for the user
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>newTheme</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Hex value of new theme color</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line534">line 534</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="updateYearlyGoals"><span class="type-signature"></span>updateYearlyGoals<span class="signature">(yearObj)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    update db object for year
 </div>
 
 
@@ -8305,7 +11711,7 @@ the year property much match one already existing in the database
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">String</span>
 
 
             
@@ -8386,7 +11792,7 @@ the year property much match one already existing in the database
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line333">line 333</a>
+        <a href="Backend_BackendInit.js.html">Backend/BackendInit.js</a>, <a href="Backend_BackendInit.js.html#line547">line 547</a>
     </li></ul></dd>
     
 
@@ -8442,13 +11848,13 @@ the year property much match one already existing in the database
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#checkingDeploy">checkingDeploy</a></li><li><a href="global.html#collapsible_year_toggle">collapsible_year_toggle</a></li><li><a href="global.html#createDay">createDay</a></li><li><a href="global.html#createMonthlyGoals">createMonthlyGoals</a></li><li><a href="global.html#createSettings">createSettings</a></li><li><a href="global.html#createYearlyGoals">createYearlyGoals</a></li><li><a href="global.html#dayNumber">dayNumber</a></li><li><a href="global.html#db">db</a></li><li><a href="global.html#DB_NAME">DB_NAME</a></li><li><a href="global.html#DB_VERSION">DB_VERSION</a></li><li><a href="global.html#deleteDay">deleteDay</a></li><li><a href="global.html#deleteMockData">deleteMockData</a></li><li><a href="global.html#deleteMonthlyGoals">deleteMonthlyGoals</a></li><li><a href="global.html#deleteSettings">deleteSettings</a></li><li><a href="global.html#deleteYearlyGoals">deleteYearlyGoals</a></li><li><a href="global.html#editMockData">editMockData</a></li><li><a href="global.html#fetchMonthGoals">fetchMonthGoals</a></li><li><a href="global.html#fetchYearGoals">fetchYearGoals</a></li><li><a href="global.html#firstDow">firstDow</a></li><li><a href="global.html#getDay">getDay</a></li><li><a href="global.html#getDimensions">getDimensions</a></li><li><a href="global.html#getLoginState">getLoginState</a></li><li><a href="global.html#getMockData">getMockData</a></li><li><a href="global.html#getMonthlyGoals">getMonthlyGoals</a></li><li><a href="global.html#getSettings">getSettings</a></li><li><a href="global.html#getYearlyGoals">getYearlyGoals</a></li><li><a href="global.html#goHome">goHome</a></li><li><a href="global.html#handleLogin">handleLogin</a></li><li><a href="global.html#handleSignup">handleSignup</a></li><li><a href="global.html#initDay">initDay</a></li><li><a href="global.html#initDB">initDB</a></li><li><a href="global.html#initGoal">initGoal</a></li><li><a href="global.html#initMonth">initMonth</a></li><li><a href="global.html#initYear">initYear</a></li><li><a href="global.html#lastDow">lastDow</a></li><li><a href="global.html#monthNumber">monthNumber</a></li><li><a href="global.html#renderBullets">renderBullets</a></li><li><a href="global.html#renderChild">renderChild</a></li><li><a href="global.html#renderGoals">renderGoals</a></li><li><a href="global.html#renderPhotos">renderPhotos</a></li><li><a href="global.html#requestDay">requestDay</a></li><li><a href="global.html#setDB">setDB</a></li><li><a href="global.html#setNewUser">setNewUser</a></li><li><a href="global.html#setReturningUser">setReturningUser</a></li><li><a href="global.html#setSelected">setSelected</a></li><li><a href="global.html#setupCalendar">setupCalendar</a></li><li><a href="global.html#setUpMockData">setUpMockData</a></li><li><a href="global.html#storageSession">storageSession</a></li><li><a href="global.html#updateDay">updateDay</a></li><li><a href="global.html#updateMonthlyGoals">updateMonthlyGoals</a></li><li><a href="global.html#updateNote">updateNote</a></li><li><a href="global.html#updateSettings">updateSettings</a></li><li><a href="global.html#updateYearsGoals">updateYearsGoals</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addGoalListeners">addGoalListeners</a></li><li><a href="global.html#addPhoto">addPhoto</a></li><li><a href="global.html#appendBulletToList">appendBulletToList</a></li><li><a href="global.html#bulletChangeResolution">bulletChangeResolution</a></li><li><a href="global.html#bulletParser">bulletParser</a></li><li><a href="global.html#createDay">createDay</a></li><li><a href="global.html#createMonthlyGoals">createMonthlyGoals</a></li><li><a href="global.html#createYearlyGoals">createYearlyGoals</a></li><li><a href="global.html#customAlert">customAlert</a></li><li><a href="global.html#dayNumber">dayNumber</a></li><li><a href="global.html#daysInMonth">daysInMonth</a></li><li><a href="global.html#deleteDay">deleteDay</a></li><li><a href="global.html#deleteMonthlyGoals">deleteMonthlyGoals</a></li><li><a href="global.html#deleteObjAtDBPath">deleteObjAtDBPath</a></li><li><a href="global.html#deletePhoto">deletePhoto</a></li><li><a href="global.html#deleteYearlyGoals">deleteYearlyGoals</a></li><li><a href="global.html#fetchGoals">fetchGoals</a></li><li><a href="global.html#firstDow">firstDow</a></li><li><a href="global.html#generalBulletListener">generalBulletListener</a></li><li><a href="global.html#generalOp">generalOp</a></li><li><a href="global.html#getBannerImage">getBannerImage</a></li><li><a href="global.html#getBase64">getBase64</a></li><li><a href="global.html#getBulletList">getBulletList</a></li><li><a href="global.html#getCurrentDate">getCurrentDate</a></li><li><a href="global.html#getCurrentWeek">getCurrentWeek</a></li><li><a href="global.html#getDataAtDBPath">getDataAtDBPath</a></li><li><a href="global.html#getDay">getDay</a></li><li><a href="global.html#getDimensions">getDimensions</a></li><li><a href="global.html#getMonthlyGoals">getMonthlyGoals</a></li><li><a href="global.html#getMonthName">getMonthName</a></li><li><a href="global.html#getMonthObj">getMonthObj</a></li><li><a href="global.html#getProfileImage">getProfileImage</a></li><li><a href="global.html#getTheme">getTheme</a></li><li><a href="global.html#getUserID">getUserID</a></li><li><a href="global.html#getYearlyGoals">getYearlyGoals</a></li><li><a href="global.html#goalListenerRemoval">goalListenerRemoval</a></li><li><a href="global.html#goalListenerSetup">goalListenerSetup</a></li><li><a href="global.html#googleSignIn">googleSignIn</a></li><li><a href="global.html#isValidEmail">isValidEmail</a></li><li><a href="global.html#isValidPassword">isValidPassword</a></li><li><a href="global.html#lastDow">lastDow</a></li><li><a href="global.html#loadBannerImage">loadBannerImage</a></li><li><a href="global.html#loadGoalReminders">loadGoalReminders</a></li><li><a href="global.html#loadNotes">loadNotes</a></li><li><a href="global.html#loadProfileImage">loadProfileImage</a></li><li><a href="global.html#loadTheme">loadTheme</a></li><li><a href="global.html#loadWeek">loadWeek</a></li><li><a href="global.html#loginSignUpSetup">loginSignUpSetup</a></li><li><a href="global.html#monthNumber">monthNumber</a></li><li><a href="global.html#populateGoalList">populateGoalList</a></li><li><a href="global.html#processBullet">processBullet</a></li><li><a href="global.html#processCurrentImage">processCurrentImage</a></li><li><a href="global.html#removeGoalListeners">removeGoalListeners</a></li><li><a href="global.html#renderBullets">renderBullets</a></li><li><a href="global.html#renderGoals">renderGoals</a></li><li><a href="global.html#renderPhotos">renderPhotos</a></li><li><a href="global.html#requestDay">requestDay</a></li><li><a href="global.html#setBulletFeature">setBulletFeature</a></li><li><a href="global.html#setBulletText">setBulletText</a></li><li><a href="global.html#setLogin">setLogin</a></li><li><a href="global.html#setSignUp">setSignUp</a></li><li><a href="global.html#setupCalendar">setupCalendar</a></li><li><a href="global.html#signIn">signIn</a></li><li><a href="global.html#signUp">signUp</a></li><li><a href="global.html#submitGoal">submitGoal</a></li><li><a href="global.html#toggleBulletStatus">toggleBulletStatus</a></li><li><a href="global.html#togglePasswordSetup">togglePasswordSetup</a></li><li><a href="global.html#updateBannerImage">updateBannerImage</a></li><li><a href="global.html#updateDay">updateDay</a></li><li><a href="global.html#updateMonthlyGoals">updateMonthlyGoals</a></li><li><a href="global.html#updateNote">updateNote</a></li><li><a href="global.html#updateNotes">updateNotes</a></li><li><a href="global.html#updateObjAtDBPath">updateObjAtDBPath</a></li><li><a href="global.html#updateProfileImage">updateProfileImage</a></li><li><a href="global.html#updateTheme">updateTheme</a></li><li><a href="global.html#updateYearlyGoals">updateYearlyGoals</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Tue Apr 26 2022 20:52:54 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Thu Jun 09 2022 04:18:25 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>
